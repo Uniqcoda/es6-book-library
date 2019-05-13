@@ -1,4 +1,4 @@
-let database = require('../app_methods/database')
+let database = require('../app_methods/database');
 // user constructor function
 function User(name, email) {
   this.name = name;
@@ -10,4 +10,4 @@ User.prototype.save = function () {
   database.users.push(this);
 };
 
-module.exports = User
+module.exports = User;
