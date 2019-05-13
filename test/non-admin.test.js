@@ -3,9 +3,9 @@ let NonAdmin = require('../app_methods/non-admin');
 
 describe('test cases for creating a non-admin',
   function () {
-    let busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com');
+    let busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
     busayo.save();
     test('check for instance of NonAdmin', function () {
       expect(busayo instanceof NonAdmin).toBeTruthy();
     });
-  });
+  });  
