@@ -1,5 +1,5 @@
 let database = require('../app_methods/database');
-let NonAdmin = require('../app_methods/non-admin');
+let NonAdmin = require('../app_methods/non_admin');
 
 describe('test cases for creating a non-admin',
   function () {

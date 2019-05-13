@@ -16,7 +16,7 @@ Book.createBook = function (name, author, totalQuantity) {
 }
 
 Book.searchBook = function (name) {
-  
+
 }
 
 Book.updateBook = function (Id, updateDetails) {

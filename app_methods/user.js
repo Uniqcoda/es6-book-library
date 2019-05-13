@@ -1,4 +1,6 @@
 let database = require('../app_methods/database');
+let Book = require('../app_methods/book');
+
 // user constructor function
 function User(name, email) {
   this.name = name;
@@ -11,5 +13,8 @@ User.prototype.save = function () {
 };
 
 // User searches for a book by name
+User.prototype.searchBook = function (name) {
+  
+}
 
 module.exports = User;
