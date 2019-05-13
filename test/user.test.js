@@ -20,6 +20,7 @@ describe('test for user methods', function () {
     moses.createBook('Agriculture1', 'Mike Ogbonna', 10);
     test('returns an object of the searched book', function () {
       expect(daniel.searchBook('Physics1')[0]).toHaveProperty('author', 'David Mogbeyi');
+      expect(moses.searchBook('Physics2')).toBe('Book not found');
     })
   })
 })
