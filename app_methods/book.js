@@ -11,4 +11,27 @@ function Book(name, author, totalQuantity) {
   database.books.push(this);
 }
 
+Book.createBook = function (name, author, totalQuantity) {
+  return new Book(name, author, totalQuantity);
+}
+
+Book.searchBook = function (name) {
+  
+}
+
+Book.updateBook = function (Id, updateDetails) {
+  
+}
+
+Book.deleteBook = function (bookId) {
+  
+}
+
+Book.readBook = function () {
+  
+}
+
+Book.readAllBooks = function () {
+  
+}
 module.exports = Book;

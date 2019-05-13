@@ -10,4 +10,6 @@ User.prototype.save = function () {
   database.users.push(this);
 };
 
+// User searches for a book by name
+
 module.exports = User;
