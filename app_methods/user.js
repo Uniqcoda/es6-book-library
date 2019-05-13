@@ -14,7 +14,7 @@ User.prototype.save = function () {
 
 // User searches for a book by name
 User.prototype.searchBook = function (name) {
-  
+  return Book.searchBook(name);
 }
 
 module.exports = User;

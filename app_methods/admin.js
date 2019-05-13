@@ -12,7 +12,7 @@ Admin.prototype.constructor = Admin;
 
 // Admin creates a book (buys a book and adds to the library database)
 Admin.prototype.createBook = function (name, author, totalQuantity) {
-  Book.createBook(name, author, totalQuantity);
+  return Book.createBook(name, author, totalQuantity);
 }
 // Admin updates book properties by Id
 // Admin deletes book by Id

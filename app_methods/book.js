@@ -16,22 +16,28 @@ Book.createBook = function (name, author, totalQuantity) {
 }
 
 Book.searchBook = function (name) {
-
+  let booksWithName = [];
+  for (let index = 0; index < database.books.length; index++) {
+    if (database.books[index].name === name) {
+      booksWithName.push({ name: database.books[index].name, author: database.books[index].author });
+    }
+  }
+  return booksWithName;
 }
 
 Book.updateBook = function (Id, updateDetails) {
-  
+
 }
 
 Book.deleteBook = function (bookId) {
-  
+
 }
 
 Book.readBook = function () {
-  
+
 }
 
 Book.readAllBooks = function () {
-  
+
 }
 module.exports = Book;

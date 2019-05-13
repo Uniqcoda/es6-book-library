@@ -8,14 +8,15 @@ describe('test cases for Admin methods', function () {
   describe('test for creating an admin', function () {
     test('checks for instance of Admin', function () {
       expect(moses instanceof Admin).toBeTruthy();
+      expect(database.users[0]).toHaveProperty('name', 'Moses Adebayo');
     });
   });
   describe('test for admin creating a book', function () {
-    moses.createBook('Physics1', 'David Mogbeyi', 5)
+    moses.createBook('Physics1', 'David Mogbeyi', 5);
     grace.createBook('Agriculture1', 'Mike Ogbonna', 10);
     test('checks that new book was created', function () {
       expect(database.books[0]).toHaveProperty('name', 'Physics1');
       expect(database.books[1]).toHaveProperty('name', 'Agriculture1');
-    })
+    });
   })
 })
