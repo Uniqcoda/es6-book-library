@@ -24,7 +24,6 @@ describe('test cases for Admin methods', function () {
   describe('test for admin updating a book', function () {
     test('confirms that book was updated', function () {
       moses.updateBook(1, {totalQuantity: 8});
-      console.log(database.books[0]);
       expect(database.books[0]).toHaveProperty('totalQuantity', 8); 
     })
   })

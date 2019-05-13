@@ -19,14 +19,21 @@ Book.searchBook = function (name) {
   let booksWithName = [];
   for (let index = 0; index < database.books.length; index++) {
     if (database.books[index].name === name) {
-      booksWithName.push({ name: database.books[index].name, author: database.books[index].author });
+      let bookName = database.books[index].name;
+      let bookAuthor = database.books[index].author;
+      booksWithName.push({ name: bookName, author: bookAuthor });
     }
   }
-  return booksWithName;
+  if (booksWithName.length) return booksWithName;
+  return 'Book not found';
 }
 
-Book.updateBook = function (Id, updateDetails) {
-
+Book.updateBook = function (bookId, updateDetails) {
+  for (let index = 0; index < database.books.length; index++) {
+if (database.books[index].bookId === bookId) {
+  return database.books[index].totalQuantity = updateDetails.totalQuantity;
+}
+  }
 }
 
 Book.deleteBook = function (bookId) {
