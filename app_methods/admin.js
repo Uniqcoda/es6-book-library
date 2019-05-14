@@ -1,6 +1,7 @@
 var database = require('../app_methods/database');
 var User = require('../app_methods/user');
 var Book = require('../app_methods/book');
+var PendingRequest = require('./pending_request')
 
 // Admin constructor
 function Admin(name, email) {
@@ -35,7 +36,12 @@ Admin.prototype.deleteBook = function (bookId) {
 
 /* METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK */
 
-// Admin reads pending borrow requests
+// Admin reads all pending borrow requests
+Admin.prototype.readAllRequests = function () {
+  return PendingRequest.readAllRequests();
+}
+
+// Admin approves a request
 
 
 // Admin replaces a returned book

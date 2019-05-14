@@ -68,7 +68,9 @@ describe('test cases for Admin methods', function () {
 
   describe('test for admin reading all pending requests', function () {
     test('returns an array of all pending requests', function () {
-      expect(moses.readAllRequests().length).toBe(5)
+      expect(moses.readAllRequests().length).toBe(3)
     })
   })
+  console.log(database.pendingRequests);
+
 })

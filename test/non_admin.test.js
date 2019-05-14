@@ -28,9 +28,7 @@ describe('test for non-admin methods', function () {
       expect(database.pendingRequests.length).toBe(1);
       expect(database.pendingRequests[0]).toHaveProperty('userId', 1);
       // check if confirmation statement is returned
-      expect(result).toBe('Request submitted!')
-      console.log(database.pendingRequests);
-      
+      expect(result).toBe('Request submitted!')      
     })
   })
 })
