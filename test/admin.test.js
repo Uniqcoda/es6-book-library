@@ -63,8 +63,8 @@ describe('test cases for Admin methods', function () {
   var austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student')
   austin.save();
   var result = busayo.requestToBorrow('Physics1', 1);
-  var result = kingsley.requestToBorrow('Physics1', 1);
   var result = austin.requestToBorrow('Physics1', 1);
+  var result = kingsley.requestToBorrow('Physics1', 1);
 
   describe('test for admin reading all pending requests', function () {
     test('returns an array of all pending requests', function () {
@@ -72,5 +72,12 @@ describe('test cases for Admin methods', function () {
     })
   })
   console.log(database.pendingRequests);
+  describe('test for admin approving pending requests', function () {
+    moses.approveRequests();
+    test('', function () {
+      expect(database.pendingRequests[0]).toHaveProperty('isApproved', true)      
+      expect(database.pendingRequests[1]).toHaveProperty('isApproved', false)
+    })
+  })
 
 })

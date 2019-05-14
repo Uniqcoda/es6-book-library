@@ -41,8 +41,10 @@ Admin.prototype.readAllRequests = function () {
   return PendingRequest.readAllRequests();
 }
 
-// Admin approves a request
-
+// Admin approves requests in pending requests array
+Admin.prototype.approveRequests = function () {
+  
+}
 
 // Admin replaces a returned book
 
