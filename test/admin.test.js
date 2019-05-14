@@ -25,7 +25,7 @@ describe('test cases for Admin methods', function () {
     test('confirms that book was updated', function () {
       moses.updateBook(1, { totalQuantity: 8 });
       expect(database.books[0]).toHaveProperty('totalQuantity', 8);
-      expect(grace.updateBook(59, { totalQuantity: 2 })).toBe('Book not found');
+      expect(grace.updateBook(59, { totalQuantity: 2 })).toBe('Invalid id');
     })
   });
   describe('test for admin reading a book by id', function () {
@@ -33,7 +33,7 @@ describe('test cases for Admin methods', function () {
       let result = grace.readABook(1);
       console.log(result);
       expect(result).toHaveProperty('quantityAvailable', 5);
-      expect(grace.readABook(59)).toBe('Book not found');
+      expect(grace.readABook(59)).toBe('Invalid id');
     })
   })
 })

@@ -25,7 +25,7 @@ Book.searchBook = function (name) {
     }
   }
   if (booksWithName.length) return booksWithName;
-  return 'Book not found';
+  return 'Invalid id';
 }
 
 Book.updateBook = function (bookId, updateDetails) {
@@ -34,7 +34,7 @@ Book.updateBook = function (bookId, updateDetails) {
       return database.books[index].totalQuantity = updateDetails.totalQuantity;
     }
   }
-  return 'Book not found';
+  return 'Invalid id';
 }
 
 Book.deleteBook = function (bookId) {
@@ -47,6 +47,7 @@ Book.readABook = function (bookId) {
       return database.books[index]
     }
   }
+  return 'Invalid id';
 }
 
 Book.readAllBooks = function () {
