@@ -33,6 +33,7 @@ describe('test cases for Admin methods', function () {
       let result = grace.readABook(1);
       console.log(result);
       expect(result).toHaveProperty('quantityAvailable', 5);
+      expect(grace.readABook(59)).toBe('Book not found');
     })
   })
 })
