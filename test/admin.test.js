@@ -41,4 +41,11 @@ describe('test cases for Admin methods', function () {
       expect(moses.readAllBooks().length).toBe(2);
     })
   })
+  describe('test for admin deleting a book by id', function () {
+    test('deletes book fron database', function () {
+      grace.deleteBook(1);
+      expect(database.books.length).toEqual(1);
+      expect(grace.deleteBook(200)).toBe('Invalid id');
+    })
+  })
 })
