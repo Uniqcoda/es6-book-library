@@ -1,11 +1,11 @@
-let database = require('../app_methods/database');
-let User = require('../app_methods/user');
-let Admin = require('../app_methods/admin')
+var database = require('../app_methods/database');
+var User = require('../app_methods/user');
+var Admin = require('../app_methods/admin')
 
 describe('test for user methods', function () {
-  let daniel = new User('Daniel Ephraim', 'danield@gmail.com');
+  var daniel = new User('Daniel Ephraim', 'danield@gmail.com');
   daniel.save();
-  let moses = new Admin('Moses Adebayo', 'mosesm@gmail.com');
+  var moses = new Admin('Moses Adebayo', 'mosesm@gmail.com');
   moses.save();
 
   describe('test cases for creating a user', function () {

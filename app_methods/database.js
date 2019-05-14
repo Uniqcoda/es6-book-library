@@ -1,4 +1,4 @@
-let database = {
+var database = {
   users: [],
   books: []
 }

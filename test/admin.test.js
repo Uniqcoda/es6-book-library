@@ -1,10 +1,10 @@
-let database = require('../app_methods/database');
-let Admin = require('../app_methods/admin');
+var database = require('../app_methods/database');
+var Admin = require('../app_methods/admin');
 
 describe('test cases for Admin methods', function () {
-  let moses = new Admin('Moses Adebayo', 'mosesm@gmail.com');
+  var moses = new Admin('Moses Adebayo', 'mosesm@gmail.com');
   moses.save();
-  let grace = new Admin('Grace Igbokwe', 'graceg@gmail.com');
+  var grace = new Admin('Grace Igbokwe', 'graceg@gmail.com');
   grace.save();
   moses.createBook('Physics1', 'David Mogbeyi', 5);
   grace.createBook('Agriculture1', 'Mike Ogbonna', 10);
@@ -30,7 +30,7 @@ describe('test cases for Admin methods', function () {
   });
   describe('test for admin reading a book by id', function () {
     test('returns a book by given id', function () {
-      let result = grace.readABook(1);
+      var result = grace.readABook(1);
       console.log(result);
       expect(result).toHaveProperty('quantityAvailable', 5);
       expect(grace.readABook(59)).toBe('Invalid id');

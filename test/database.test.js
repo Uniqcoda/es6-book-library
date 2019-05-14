@@ -1,16 +1,16 @@
-let database = require('../app_methods/database');
-let Admin = require('../app_methods/admin');
-let Book = require('../app_methods/book');
-let User = require('../app_methods/user');
-let NonAdmin = require('../app_methods/non_admin');
+var database = require('../app_methods/database');
+var Admin = require('../app_methods/admin');
+var Book = require('../app_methods/book');
+var User = require('../app_methods/user');
+var NonAdmin = require('../app_methods/non_admin');
 
 
 describe('test for database', function () {
-  let daniel = new User('Daniel Ephraim', 'danield@gmail.com');
+  var daniel = new User('Daniel Ephraim', 'danield@gmail.com');
   daniel.save();
-  let moses = new Admin('Moses Adebayo', 'mosesm@gmail.com');
+  var moses = new Admin('Moses Adebayo', 'mosesm@gmail.com');
   moses.save();
-  let busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
+  var busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
   busayo.save();
   moses.createBook('Physics1', 'David Mogbeyi', 5);
   moses.createBook('Agriculture1', 'Mike Ogbonna', 10);

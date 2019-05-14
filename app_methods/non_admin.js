@@ -1,5 +1,5 @@
-let database = require('./database');
-let User = require('./user');
+var database = require('./database');
+var User = require('./user');
 
 // NonAdmin constructor
 function NonAdmin(name, email, userType) {

@@ -1,6 +1,6 @@
-let database = require('../app_methods/database');
-let User = require('../app_methods/user');
-let Book = require('../app_methods/book');
+var database = require('../app_methods/database');
+var User = require('../app_methods/user');
+var Book = require('../app_methods/book');
 
 // Admin constructor
 function Admin(name, email) {

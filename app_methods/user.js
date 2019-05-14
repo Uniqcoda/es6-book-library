@@ -1,5 +1,5 @@
-let database = require('../app_methods/database');
-let Book = require('../app_methods/book');
+var database = require('../app_methods/database');
+var Book = require('../app_methods/book');
 
 // user constructor function
 function User(name, email) {

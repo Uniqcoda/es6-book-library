@@ -1,4 +1,4 @@
-let database = require('../app_methods/database');
+var database = require('../app_methods/database');
 
 function Book(name, author, totalQuantity) {
   this.name = name;
@@ -16,11 +16,11 @@ Book.createBook = function (name, author, totalQuantity) {
 }
 
 Book.searchBook = function (name) {
-  let booksWithName = [];
-  for (let index = 0; index < database.books.length; index++) {
+  var booksWithName = [];
+  for (var index = 0; index < database.books.length; index++) {
     if (database.books[index].name === name) {
-      let bookName = database.books[index].name;
-      let bookAuthor = database.books[index].author;
+      var bookName = database.books[index].name;
+      var bookAuthor = database.books[index].author;
       booksWithName.push({ name: bookName, author: bookAuthor });
     }
   }
@@ -29,7 +29,7 @@ Book.searchBook = function (name) {
 }
 
 Book.updateBook = function (bookId, updateDetails) {
-  for (let index = 0; index < database.books.length; index++) {
+  for (var index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
       return database.books[index].totalQuantity = updateDetails.totalQuantity;
     }
@@ -38,7 +38,7 @@ Book.updateBook = function (bookId, updateDetails) {
 }
 
 Book.deleteBook = function (bookId) {
-  for (let index = 0; index < database.books.length; index++) {
+  for (var index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
       database.books.splice(index,1);
       return 'Book successfully deleted'
@@ -48,7 +48,7 @@ Book.deleteBook = function (bookId) {
 }
 
 Book.readABook = function (bookId) {
-  for (let index = 0; index < database.books.length; index++) {
+  for (var index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
       return database.books[index];
     }
