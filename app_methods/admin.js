@@ -45,9 +45,7 @@ Admin.prototype.readAllRequests = function () {
 // Admin approves requests in pending requests array
 Admin.prototype.approveRequests = function () {
   // loop through the pendingRequests array
-  for (let i = 0; i < database.pendingRequests.length; i++) {
-    
-  }
+  PendingRequest.approveRequest()
 }
 
 // Admin replaces a returned book

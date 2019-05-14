@@ -31,7 +31,7 @@ Book.searchBook = function (name) {
 Book.updateBook = function (bookId, updateDetails) {
   for (var index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
-      return database.books[index].totalQuantity = updateDetails.totalQuantity;
+      return Object.assign(database.books[index], updateDetails);
     }
   }
   return 'Invalid id';
@@ -40,7 +40,7 @@ Book.updateBook = function (bookId, updateDetails) {
 Book.deleteBook = function (bookId) {
   for (var index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
-      database.books.splice(index,1);
+      database.books.splice(index, 1);
       return 'Book successfully deleted'
     }
   }

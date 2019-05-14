@@ -71,13 +71,14 @@ describe('test cases for Admin methods', function () {
       expect(moses.readAllRequests().length).toBe(3)
     })
   })
-  console.log(database.pendingRequests);
   describe('test for admin approving pending requests', function () {
     moses.approveRequests();
     test('', function () {
-      expect(database.pendingRequests[0]).toHaveProperty('isApproved', true)      
-      expect(database.pendingRequests[1]).toHaveProperty('isApproved', false)
+      expect(database.pendingRequests[0].isApproved).toBe(true)
+      console.log(database.pendingRequests);     
+      expect(database.pendingRequests[1].isApproved).toBe(false)
     })
   })
 
 })
+// console.log(database);
