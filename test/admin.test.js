@@ -49,6 +49,6 @@ describe('test cases for Admin methods', function () {
     })
   })
 
-  // METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
+  // TEST FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
 
 })
