@@ -31,7 +31,6 @@ describe('test cases for Admin methods', function () {
   describe('test for admin reading a book by id', function () {
     test('returns a book by given id', function () {
       var result = grace.readABook(1);
-      console.log(result);
       expect(result).toHaveProperty('quantityAvailable', 5);
       expect(grace.readABook(59)).toBe('Invalid id');
     })

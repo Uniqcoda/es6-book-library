@@ -14,24 +14,22 @@ describe('test for database', function () {
   busayo.save();
   moses.createBook('Physics1', 'David Mogbeyi', 5);
   moses.createBook('Agriculture1', 'Mike Ogbonna', 10);
-describe('test for creating an admin', function () {
-  test('', function () {
-    expect(moses instanceof Admin).toBeTruthy();
+  describe('test for creating an admin', function () {
+    test('', function () {
+      expect(moses instanceof Admin).toBeTruthy();
+    })
   })
-})
-describe('test for creating a non-admin', function () {
-  test('', function () {
-    expect(busayo instanceof NonAdmin).toBeTruthy();
+  describe('test for creating a non-admin', function () {
+    test('', function () {
+      expect(busayo instanceof NonAdmin).toBeTruthy();
+    })
   })
-})
-describe('test for creating a book', function () {
-  expect(database.books[0]).toHaveProperty('name', 'Physics1')
-})
-describe('test for creating a user', function () {
-  test('', function () {
-    expect(daniel instanceof User).toBeTruthy();
+  describe('test for creating a book', function () {
+    expect(database.books[0]).toHaveProperty('name', 'Physics1')
   })
-})
-console.log(database);
-
+  describe('test for creating a user', function () {
+    test('', function () {
+      expect(daniel instanceof User).toBeTruthy();
+    })
+  })
 })

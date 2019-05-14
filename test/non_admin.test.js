@@ -11,7 +11,7 @@ describe('test for non-admin methods', function () {
   austin.save();
   var grace = new Admin('Grace Igbokwe', 'graceg@gmail.com');
   grace.save();
-  grace.createBook('Physics1', 'David Mogbeyi', 5);
+  grace.createBook('Physics1', 'David Mogbeyi', 2);
   grace.createBook('Agriculture1', 'Mike Ogbonna', 10);
 
   describe('test cases for creating a non-admin', function () {
@@ -23,9 +23,11 @@ describe('test for non-admin methods', function () {
   // TEST FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
   describe('test case for non-admin requesting to borrow a book', function () {
     busayo.requestToBorrow('Physics1', 'David Mogbeyi');
-    test('', function () {
+    test('adds a request to the pendingRequests array', function () {
       expect(database.pendingRequests.length).toBe(1);
       expect(database.pendingRequests[0]).toHaveProperty('userId', 1);
+      console.log(database.pendingRequests);
+      
     })
   })
 })
