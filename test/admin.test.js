@@ -36,4 +36,9 @@ describe('test cases for Admin methods', function () {
       expect(grace.readABook(59)).toBe('Invalid id');
     })
   })
+  describe('test for admin reading all books in the database', function () {
+    test('returns all books in the database', function () {
+      expect(moses.readAllBooks().length).toBe(2);
+    })
+  })
 })
