@@ -17,4 +17,14 @@ User.prototype.searchBook = function (name) {
   return Book.searchBook(name);
 }
 
+// read a user by id method
+User.readUser = function (userId) {
+  for (var index = 0; index < database.users.length; index++) {
+    if (database.users[index].userId === userId) {
+      return database.users[index];
+    }
+  }
+  return 'Invalid id';
+}
+
 module.exports = User;

@@ -75,7 +75,7 @@ describe('test cases for Admin methods', function () {
     moses.approveRequests();
     test('', function () {
       expect(database.pendingRequests[0].isApproved).toBe(true)
-      expect(database.pendingRequests[1].isApproved).toBe(false)
+      expect(database.pendingRequests[2].isApproved).toBe('Book is currently unavailable')
     })
   })
 

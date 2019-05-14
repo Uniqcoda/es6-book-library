@@ -12,6 +12,11 @@ function Admin(name, email) {
 Admin.prototype = Object.create(User.prototype);
 Admin.prototype.constructor = Admin;
 
+// Admin reads a user
+Admin.prototype.readUser = function (userId) {
+  return User.readUser(userId)
+}
+
 // Admin creates a book (buys a book and adds to the library database)
 Admin.prototype.createBook = function (name, author, totalQuantity) {
   return Book.createBook(name, author, totalQuantity);
