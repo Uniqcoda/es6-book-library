@@ -5,6 +5,10 @@ var NonAdmin = require('../app_methods/non_admin');
 describe('test for non-admin methods', function () {
   var busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
   busayo.save();
+  var kingsley = new NonAdmin('Kingsley Olatunji', 'kingsleyk@gmail.com', 'Senior Student');
+  kingsley.save();
+  var austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student')
+  austin.save();
   var grace = new Admin('Grace Igbokwe', 'graceg@gmail.com');
   grace.save();
   grace.createBook('Physics1', 'David Mogbeyi', 5);
@@ -16,7 +20,12 @@ describe('test for non-admin methods', function () {
       expect(database.users[0]).toHaveProperty('name', 'Busayo Onyeka')
     });
   });
-
   // TEST FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
-
+  describe('test case for non-admin requesting to borrow a book', function () {
+    busayo.requestToBorrow('Physics1', 'David Mogbeyi');
+    test('', function () {
+      expect(database.pendingRequests.length).toBe(1);
+      expect(database.pendingRequests[0]).toHaveProperty('userId', 1);
+    })
+  })
 })
