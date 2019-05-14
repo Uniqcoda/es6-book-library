@@ -22,7 +22,9 @@ Admin.prototype.updateBook = function (bookId, updateDetails) {
 // Admin replaces a returned book
 
 // Admin reads all books available in the database
-
+Admin.prototype.readAllBooks = function () {
+  return Book.readAllBooks();
+}
 // Admin reads a book by Id
 Admin.prototype.readABook = function (bookId) {
   return Book.readABook(bookId);

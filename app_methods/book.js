@@ -44,13 +44,13 @@ Book.deleteBook = function (bookId) {
 Book.readABook = function (bookId) {
   for (let index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
-      return database.books[index]
+      return database.books[index];
     }
   }
   return 'Invalid id';
 }
 
 Book.readAllBooks = function () {
-
+  return database.books;
 }
 module.exports = Book;
