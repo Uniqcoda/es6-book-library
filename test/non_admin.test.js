@@ -22,10 +22,13 @@ describe('test for non-admin methods', function () {
   });
   // TEST FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
   describe('test case for non-admin requesting to borrow a book', function () {
-    busayo.requestToBorrow('Physics1', 'David Mogbeyi');
+    var result = busayo.requestToBorrow('Physics1', 1);
     test('adds a request to the pendingRequests array', function () {
+      // confirm that the request was added to the pendingRequests array
       expect(database.pendingRequests.length).toBe(1);
       expect(database.pendingRequests[0]).toHaveProperty('userId', 1);
+      // check if confirmation statement is returned
+      expect(result).toBe('Request submitted!')
       console.log(database.pendingRequests);
       
     })
