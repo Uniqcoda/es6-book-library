@@ -23,8 +23,9 @@ describe('test cases for Admin methods', function () {
   })
   describe('test for admin updating a book', function () {
     test('confirms that book was updated', function () {
-      moses.updateBook(1, {totalQuantity: 8});
-      expect(database.books[0]).toHaveProperty('totalQuantity', 8); 
+      moses.updateBook(1, { totalQuantity: 8 });
+      expect(database.books[0]).toHaveProperty('totalQuantity', 8);
+      expect(grace.updateBook(59, { totalQuantity: 2 })).toBe('Book not found');
     })
   })
 })

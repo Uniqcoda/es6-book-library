@@ -30,10 +30,11 @@ Book.searchBook = function (name) {
 
 Book.updateBook = function (bookId, updateDetails) {
   for (let index = 0; index < database.books.length; index++) {
-if (database.books[index].bookId === bookId) {
-  return database.books[index].totalQuantity = updateDetails.totalQuantity;
-}
+    if (database.books[index].bookId === bookId) {
+      return database.books[index].totalQuantity = updateDetails.totalQuantity;
+    }
   }
+  return 'Book not found';
 }
 
 Book.deleteBook = function (bookId) {
