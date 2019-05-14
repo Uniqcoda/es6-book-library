@@ -38,7 +38,13 @@ Book.updateBook = function (bookId, updateDetails) {
 }
 
 Book.deleteBook = function (bookId) {
-
+  for (let index = 0; index < database.books.length; index++) {
+    if (database.books[index].bookId === bookId) {
+      database.books.splice(index,1);
+      return 'Book successfully deleted'
+    }
+  }
+  return 'Invalid id';
 }
 
 Book.readABook = function (bookId) {

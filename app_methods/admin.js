@@ -32,4 +32,7 @@ Admin.prototype.readABook = function (bookId) {
 // Admin reads pending borrow requests
 
 // Admin deletes book by Id
+Admin.prototype.deleteBook = function (bookId) {
+  return Book.deleteBook(bookId);
+}
 module.exports = Admin;
