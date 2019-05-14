@@ -41,7 +41,7 @@ Book.deleteBook = function (bookId) {
 
 }
 
-Book.readBook = function () {
+Book.readBook = function (bookId) {
 
 }
 

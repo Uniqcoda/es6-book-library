@@ -21,11 +21,18 @@ describe('test cases for Admin methods', function () {
       expect(database.books[1]).toHaveProperty('name', 'Agriculture1');
     });
   })
-  describe('test for admin updating a book', function () {
+  describe('test for admin updating a book by id', function () {
     test('confirms that book was updated', function () {
       moses.updateBook(1, { totalQuantity: 8 });
       expect(database.books[0]).toHaveProperty('totalQuantity', 8);
       expect(grace.updateBook(59, { totalQuantity: 2 })).toBe('Book not found');
+    })
+  });
+  describe('test for admin reading a book by id', function () {
+    test('returns a book by given id', function () {
+      let result = grace.readABook(1);
+      console.log(result);
+      expect(result).toHaveProperty('quantityAvailable', '8');
     })
   })
 })

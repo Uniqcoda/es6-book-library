@@ -18,9 +18,14 @@ Admin.prototype.createBook = function (name, author, totalQuantity) {
 Admin.prototype.updateBook = function (bookId, updateDetails) {
   return Book.updateBook(bookId, updateDetails)
 }
-// Admin deletes book by Id
+
 // Admin replaces a returned book
+
 // Admin reads all books available in the database
+
 // Admin reads a book by Id
+
 // Admin reads pending borrow requests
+
+// Admin deletes book by Id
 module.exports = Admin;
