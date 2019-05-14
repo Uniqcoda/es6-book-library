@@ -38,7 +38,7 @@ describe('test cases for Admin methods', function () {
   describe('test for admin reading a book by id', function () {
     test('returns a book by given id', function () {
       var result = grace.readABook(1);
-      expect(result).toHaveProperty('quantityAvailable', 2);
+      expect(result).toHaveProperty('author', 'David Mogbeyi');
       expect(grace.readABook(59)).toBe('Invalid id');
     })
   })
@@ -75,10 +75,9 @@ describe('test cases for Admin methods', function () {
     moses.approveRequests();
     test('', function () {
       expect(database.pendingRequests[0].isApproved).toBe(true)
-      console.log(database.pendingRequests);     
       expect(database.pendingRequests[1].isApproved).toBe(false)
     })
   })
 
 })
-// console.log(database);
+console.log(database);

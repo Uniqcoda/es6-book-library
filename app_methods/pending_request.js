@@ -25,20 +25,26 @@ PendingRequest.approveRequest = function () {
     return a.bookId - b.bookId;
   });
   // loop through the sorted array of books
-  for (let i = 0; i < database.pendingRequests.length; i++) {
+  for (var i = 0; i < database.pendingRequests.length; i++) {
     // get the quantityAvailable of book requested, using the readABook property of the book
     var bookId = database.pendingRequests[i].bookId;
-    var quantityAvalaible = Book.readABook(bookId).quantityAvalable;
-    if (quantityAvalaible < 1) { //if the book is not available
-     database.pendingRequests[i].isApproved = 'Book is currently unavailable';
-     continue;
+    var quantityAvailable = Book.readABook(bookId).quantityAvailable;
+    if (quantityAvailable < 1) { //if the book is not available
+      database.pendingRequests[i].isApproved = 'Book is currently unavailable';
+      continue;
     }
     if (database.pendingRequests[i].userType === 'Teacher') { // if user is a teacher
       database.pendingRequests[i].isApproved = true;
-      // update the book by reducing the quantity available by 1
-      Book.updateBook(bookId, {quantityAvalable: this.quantityAvalaible - 1})
+      // add userId to the borrowers array of the book
+    for (var j = 0; j < database.books.length; j++) {
+      if (database.books[j].bookId === bookId) { 
+        database.books[j].borrowers += 1;
+        database.books[j].quantityAvailable -= 1;
+      }
+    }
       continue
     }
+
   }
 }
 module.exports = PendingRequest;
