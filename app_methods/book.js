@@ -1,4 +1,4 @@
-var database = require('../app_methods/database');
+var database = require('./database');
 
 function Book(name, author, totalQuantity) {
   this.name = name;
