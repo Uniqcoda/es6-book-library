@@ -24,7 +24,9 @@ Admin.prototype.updateBook = function (bookId, updateDetails) {
 // Admin reads all books available in the database
 
 // Admin reads a book by Id
-
+Admin.prototype.readABook = function (bookId) {
+  return Book.readABook(bookId);
+}
 // Admin reads pending borrow requests
 
 // Admin deletes book by Id

@@ -41,8 +41,12 @@ Book.deleteBook = function (bookId) {
 
 }
 
-Book.readBook = function (bookId) {
-
+Book.readABook = function (bookId) {
+  for (let index = 0; index < database.books.length; index++) {
+    if (database.books[index].bookId === bookId) {
+      return database.books[index]
+    }
+  }
 }
 
 Book.readAllBooks = function () {

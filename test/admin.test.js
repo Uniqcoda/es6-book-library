@@ -32,7 +32,7 @@ describe('test cases for Admin methods', function () {
     test('returns a book by given id', function () {
       let result = grace.readABook(1);
       console.log(result);
-      expect(result).toHaveProperty('quantityAvailable', '8');
+      expect(result).toHaveProperty('quantityAvailable', 5);
     })
   })
 })
