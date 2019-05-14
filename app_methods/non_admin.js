@@ -8,6 +8,7 @@ function NonAdmin(name, email, userType) {
   this.booksBorrowed = [];
 }
 
+/* METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK */
 // Non-admin requests to borrow a book
 // Non-admin returns a book
 NonAdmin.prototype = Object.create(User.prototype);

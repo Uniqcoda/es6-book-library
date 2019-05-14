@@ -19,8 +19,6 @@ Admin.prototype.updateBook = function (bookId, updateDetails) {
   return Book.updateBook(bookId, updateDetails)
 }
 
-// Admin replaces a returned book
-
 // Admin reads all books available in the database
 Admin.prototype.readAllBooks = function () {
   return Book.readAllBooks();
@@ -29,10 +27,17 @@ Admin.prototype.readAllBooks = function () {
 Admin.prototype.readABook = function (bookId) {
   return Book.readABook(bookId);
 }
-// Admin reads pending borrow requests
 
 // Admin deletes book by Id
 Admin.prototype.deleteBook = function (bookId) {
   return Book.deleteBook(bookId);
 }
+
+/* METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK */
+
+// Admin reads pending borrow requests
+
+
+// Admin replaces a returned book
+
 module.exports = Admin;

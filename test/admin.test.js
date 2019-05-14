@@ -48,4 +48,7 @@ describe('test cases for Admin methods', function () {
       expect(grace.deleteBook(200)).toBe('Invalid id');
     })
   })
+
+  // METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
+
 })
