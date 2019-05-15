@@ -14,6 +14,7 @@ User.prototype.save = function () {
   database.users.push(this);
 };
 
+
 // User searches for a book by name
 User.prototype.searchBook = function (name) {
   return Book.searchBook(name);

@@ -34,9 +34,10 @@ BorrowRequest.approveBorrowRequests = function () {
     // extract the bookId and userId from each pendingRequest
     var bookId = database.borrowRequests[index].bookId;
     var userId = database.borrowRequests[index].userId;
+    // read user and book
     var user = User.prototype.readUser(userId);
     var book = Book.readABook(bookId);
-    // confirm that user is not requesting to borrow a more than once
+    // confirm that user is not requesting to borrow a book more than once
     if (user.booksBorrowed.indexOf(book.name) > -1) {
       database.borrowRequests[index].isApproved = 'You have already borrowed this book!';
       continue;
