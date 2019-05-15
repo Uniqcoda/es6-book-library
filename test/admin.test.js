@@ -98,6 +98,12 @@ describe('test cases for Admin methods', function () {
   })
   // console.log(database.books);
   // console.log(database.borrowRequests);
+  busayo.requestToReturn('Physics1', 1);
+  describe('test for admin reading all return requests', function () {
+    test('returns an array of all return requests', function () {
+      expect(moses.readAllReturnRequests().length).toBe(1)
+    })
+  })
   describe('test for admin approving a return request', function () {
     grace.approveReturn();
     test('confirms approval status of returnRequests', function () {

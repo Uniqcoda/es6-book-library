@@ -2,6 +2,7 @@ var database = require('../app_methods/database');
 var User = require('../app_methods/user');
 var Book = require('../app_methods/book');
 var BorrowRequest = require('./borrow_request');
+var ReturnRequest = require('./return_request')
 let NonAdmin = require('./non_admin')
 
 // Admin constructor
@@ -52,6 +53,10 @@ Admin.prototype.approveRequests = function () {
   BorrowRequest.approveRequest()
 }
 
+// Admin reads all pending return requests
+Admin.prototype.readAllReturnRequests = function () {
+  return ReturnRequest.readAllReturnRequests();
+}
 // Admin replaces a returned book
 
 module.exports = Admin;
