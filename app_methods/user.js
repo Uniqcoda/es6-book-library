@@ -14,8 +14,19 @@ User.prototype.save = function () {
   database.users.push(this);
 };
 
-
-// User searches for a book by name
+// search a user method
+User.prototype.searchUser = function (name) {
+  var regex = new RegExp(name, 'g')
+  var usersWithName = [];
+  for (var index = 0; index < database.users.length; index++) {
+    if (regex.test(database.users[index].name)) {
+     usersWithName.push({ name: database.users[index].name});
+    }
+  }
+  if (usersWithName.length) return usersWithName;
+  return 'name not found';
+}
+// User searches for book by name
 User.prototype.searchBook = function (name) {
   return Book.searchBook(name);
 }

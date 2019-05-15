@@ -31,7 +31,7 @@ Book.searchBook = function (name) {
     }
   }
   if (booksWithName.length) return booksWithName;
-  return 'Invalid id';
+  return 'name not found';
 }
 
 // update a book method
