@@ -23,15 +23,18 @@ describe('test for user methods', function () {
   //test for searching user by name
   describe('test for searching a user by name', function () {
     test('returns an array of the searched user result', function () {
-var result = moses.searchUser('Busayo');
-console.log(result);
-
+      var result = moses.searchUser('Busayo');
       expect(result[0]).toHaveProperty('name', 'Busayo Onyeka')
     })
   })
-  
-  // test for reading user
+
   // test for updating user
+  describe('test for updating user', function () {
+    test('updates user properties', function () {
+      daniel.updateUser('email', 'danieldude@gmail.com')
+      expect(database.users[0]).toHaveProperty('email', 'danieldude@gmail.com')
+    })
+  })
   // test for deleting user
 
   describe('test for user searching a book by name', function () {

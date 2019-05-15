@@ -20,12 +20,19 @@ User.prototype.searchUser = function (name) {
   var usersWithName = [];
   for (var index = 0; index < database.users.length; index++) {
     if (regex.test(database.users[index].name)) {
-     usersWithName.push({ name: database.users[index].name});
+      usersWithName.push({ name: database.users[index].name });
     }
   }
   if (usersWithName.length) return usersWithName;
   return 'name not found';
 }
+
+// Update a user method
+User.prototype.updateUser = function (key, value) {
+  // update property by key and value parameter
+  return this[key] = value;
+}
+
 // User searches for book by name
 User.prototype.searchBook = function (name) {
   return Book.searchBook(name);
