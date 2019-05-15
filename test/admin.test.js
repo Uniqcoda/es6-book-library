@@ -24,7 +24,7 @@ describe('test cases for Admin methods', function () {
     });
   });
   describe('test for admin reading a user', function () {
-    test('returns a book by id', function () {
+    test('returns a user by id', function () {
       var result = moses.readUser(4);
       expect(result.name).toBe('Kingsley Olatunji');
       expect(grace.readUser(504)).toBe('Invalid id');
@@ -86,7 +86,7 @@ describe('test cases for Admin methods', function () {
 
   describe('test for admin reading all borrow requests', function () {
     test('returns an array of all borrow requests', function () {
-      expect(moses.readAllRequests().length).toBe(11)
+      expect(moses.readBorrowRequests().length).toBe(11)
     })
   })
   describe('test for admin approving borrow requests', function () {
@@ -103,7 +103,7 @@ describe('test cases for Admin methods', function () {
   austin.requestToReturn('Social Studies2', 19)
   describe('test for admin reading all return requests', function () {
     test('returns an array of all return requests', function () {
-      expect(moses.readAllReturnRequests().length).toBe(2)
+      expect(moses.readReturnRequests().length).toBe(2)
     })
   })
   grace.approveReturn();

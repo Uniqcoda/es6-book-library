@@ -17,7 +17,7 @@ ReturnRequest.makeRequest = function (bookName, bookId, userId, userType) {
 };
 
 // read all return requests
-ReturnRequest.readAllReturnRequests = function () {
+ReturnRequest.readReturnRequests = function () {
   return database.returnRequests;
 }
 

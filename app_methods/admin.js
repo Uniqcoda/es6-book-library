@@ -35,7 +35,7 @@ Admin.prototype.readABook = function (bookId) {
   return Book.readABook(bookId);
 }
 
-// Admin deletes book by Id
+// Admin deletes a book by Id
 Admin.prototype.deleteBook = function (bookId) {
   return Book.deleteBook(bookId);
 }
@@ -43,8 +43,8 @@ Admin.prototype.deleteBook = function (bookId) {
 /* METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK */
 
 // Admin reads all pending borrow requests
-Admin.prototype.readAllRequests = function () {
-  return BorrowRequest.readAllRequests();
+Admin.prototype.readBorrowRequests = function () {
+  return BorrowRequest.readBorrowRequests();
 }
 
 // Admin approves requests in pending requests array
@@ -53,8 +53,8 @@ Admin.prototype.approveRequests = function () {
 }
 
 // Admin reads all pending return requests
-Admin.prototype.readAllReturnRequests = function () {
-  return ReturnRequest.readAllReturnRequests();
+Admin.prototype.readReturnRequests = function () {
+  return ReturnRequest.readReturnRequests();
 }
 // Admin approves return and replaces a returned book in the library
 Admin.prototype.approveReturn = function () {

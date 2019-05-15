@@ -17,7 +17,7 @@ BorrowRequest.makeRequest = function (bookName, bookId, userId, userType) {
 };
 
 // read all requests in database
-BorrowRequest.readAllRequests = function () {
+BorrowRequest.readBorrowRequests = function () {
   return database.borrowRequests;
 }
 
