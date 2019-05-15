@@ -99,10 +99,11 @@ describe('test cases for Admin methods', function () {
   })
   // console.log(database.books);
   // console.log(database.borrowRequests);
-  busayo.requestToReturn('Physics1', 1);
+  austin.requestToReturn('Biology1', 6);
+  austin.requestToReturn('Social Studies2', 19)
   describe('test for admin reading all return requests', function () {
     test('returns an array of all return requests', function () {
-      expect(moses.readAllReturnRequests().length).toBe(1)
+      expect(moses.readAllReturnRequests().length).toBe(2)
     })
   })
   grace.approveReturn();
@@ -110,19 +111,16 @@ describe('test cases for Admin methods', function () {
     test('confirms approval status of returnRequests', function () {
       expect(database.returnRequests[0].isApproved).toBe(true);
     })
-    console.log(database.returnRequests);
-    console.log(database.books[0]);
-    console.log(database.users[2]);
+    
+    // remove book from booksBorrowed array of user
+    test('test that returned book was removed from booksBorrowed array of user', function () {
+      expect(database.users[4].booksBorrowed).toEqual(expect.not.arrayContaining(['Biology1']));
+    })
 
     test('confirms that userId was removed from borrowers array of book', function () {
       expect(database.books[0].borrowersId).toEqual(expect.not.arrayContaining([3]));
     })
-
-    // remove book from booksBorrowed array of user
-    test('test that returned book was removed from booksBorrowed array of user', function () {
-      expect(database.users[2].booksBorrowed).toEqual(expect.not.arrayContaining(['Physics1']));
-    })
   })
-  // console.log(database.users);
-
+  console.log(database);
+  
 })

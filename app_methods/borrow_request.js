@@ -41,7 +41,6 @@ BorrowRequest.approveRequest = function () {
       database.borrowRequests[index].isApproved = 'You have already borrowed this book!';
       continue;
     }
-
     // check if user has borrowed up to 3 books without returning any
     if (user.booksBorrowed.length > 2) {
       database.borrowRequests[index].isApproved = 'You have exceeded the borrow limit per person!';
