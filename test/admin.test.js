@@ -1,6 +1,6 @@
 var database = require('../app_methods/database');
 var Admin = require('../app_methods/admin');
-var BorrowRequest = require('../app_methods/borrow_request')
+var BorrowRequest = require('../app_methods/borrow_request');
 var NonAdmin = require('../app_methods/non_admin');
 
 
@@ -21,6 +21,7 @@ describe('test cases for Admin methods', function () {
   moses.createBook('Chemistry3', 'Seun Joeseph', 3);
   moses.createBook('Literature2', 'Amakiri Spiff', 1);
   grace.createBook('Agriculture1', 'Mike Ogbonna', 10);
+  grace.createBook('Biology1', 'Mfoniso Abetang', 4)
 
   describe('test for admin creating a book', function () {
     test('confirms that new book was created', function () {
@@ -44,13 +45,13 @@ describe('test cases for Admin methods', function () {
   })
   describe('test for admin reading all books in the database', function () {
     test('returns all books in the database', function () {
-      expect(moses.readAllBooks().length).toBe(5);
+      expect(moses.readAllBooks().length).toBe(6);
     })
   })
   describe('test for admin deleting a book by id', function () {
     test('deletes book fron database', function () {
       grace.deleteBook(1);
-      expect(database.books.length).toEqual(4);
+      expect(database.books.length).toEqual(5);
       expect(grace.deleteBook(200)).toBe('Invalid id');
     })
   })
@@ -62,22 +63,30 @@ describe('test cases for Admin methods', function () {
   kingsley.save();
   var austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student')
   austin.save();
-  var result = busayo.requestToBorrow('Physics1', 1);
-  var result = austin.requestToBorrow('Physics1', 1);
-  var result = kingsley.requestToBorrow('Physics1', 1);
+  busayo.requestToBorrow('Physics1', 1);
+  austin.requestToBorrow('Physics1', 1);
+  busayo.requestToBorrow('Physics1', 1);
+  kingsley.requestToBorrow('Physics1', 1);
+  austin.requestToBorrow('Chemistry3', 3);
+  kingsley.requestToBorrow('Literature2', 4);
+  austin.requestToBorrow('Biology1', 6);
+  busayo.requestToBorrow('Literature2', 4);
+  busayo.requestToBorrow('Agriculture1', 5);
+  austin.requestToBorrow('Science2', 2);
+  austin.requestToBorrow('Agriculture1', 5)
 
   describe('test for admin reading all pending requests', function () {
     test('returns an array of all pending requests', function () {
-      expect(moses.readAllRequests().length).toBe(3)
+      expect(moses.readAllRequests().length).toBe(11)
     })
   })
   describe('test for admin approving pending requests', function () {
     moses.approveRequests();
     test('', function () {
       expect(database.borrowRequests[0].isApproved).toBe(true)
-      expect(database.borrowRequests[2].isApproved).toBe('Book is currently unavailable')
+      // expect(database.borrowRequests[2].isApproved).toBe('Book is currently unavailable')
     })
   })
-
 })
-console.log(database);
+console.log(database.books);
+console.log(database.borrowRequests);

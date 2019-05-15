@@ -7,9 +7,7 @@ function BorrowRequest(bookName, bookId, userId, userType) {
   this.userType = userType;
   this.bookName = bookName;
   this.bookId = bookId;
-  this.timeOfRequest = new Date();
-  //this.requestId = database.borrowRequests.length ? database.borrowRequests[database.borrowRequests.length - 1].requestId + 1 : 1;
-  //push request object to pendingRequest array
+  //push this object to pendingRequest array
   database.borrowRequests.push(this);
 }
 
@@ -35,16 +33,26 @@ BorrowRequest.approveRequest = function () {
     var userId = database.borrowRequests[index].userId;
     var user = User.readUser(userId);
     var book = Book.readABook(bookId);
-    if (book.quantityAvailable < 1) { //if the book is not available
+    // check if user has borrowed up to 3 books without returning any
+    if (user.booksBorrowed.length > 2) {
+      database.borrowRequests[index].isApproved = 'You have exceeded the borrow limit per person!';
+      continue;
+    }
+    //if the book is not available
+    if (book.quantityAvailable < 1) {
       database.borrowRequests[index].isApproved = 'Book is currently unavailable';
       continue;
     }
+    // reduce the quantity available of the book by 1
+    book.quantityAvailable -= 1;
+    // approvee the borrow request
     database.borrowRequests[index].isApproved = true;
+    // add userId to borrowersId of book
     book.borrowersId.push(database.borrowRequests[index].userId);
     console.log(book);
     // add book to booksBorrowed array of user
     user.booksBorrowed.push(database.borrowRequests[index].bookName);
-    book.quantityAvailable -= 1;
+    console.log(user);
   }
 }
 module.exports = BorrowRequest;

@@ -16,10 +16,6 @@ NonAdmin.prototype.constructor = NonAdmin;
 
 // Non-admin requests to borrow a book
 NonAdmin.prototype.requestToBorrow = function (bookName, bookId) {
-  // check if user has borrowed up to 3 books without returning any
-  if (this.booksBorrowed.length > 2) {
-    return 'You have exceeded the borrow limit per person!'
-  }
   BorrowRequest.makeRequest(bookName, bookId, userId = this.userId, userType = this.userType);
   return 'Request submitted!';
 }
