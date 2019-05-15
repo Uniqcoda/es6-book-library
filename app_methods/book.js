@@ -41,7 +41,6 @@ Book.updateBook = function (bookId, updateObject) {
       // update property by key and value parameter
       database.books[index].name = updateObject.name || database.books[index].name;
       database.books[index].totalQuantity = updateObject.totalQuantity || database.books[index].totalQuantity;
-
       return 'Update was successful';
     }
   }

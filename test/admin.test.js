@@ -45,7 +45,9 @@ describe('test cases for Admin methods', function () {
   describe('test for admin updating a book by id', function () {
     test('confirms that book was updated', function () {
       moses.updateBook(1, { totalQuantity: 8 });
+      grace.updateBook(2,{name: 'Primary Science2'})
       expect(database.books[0]).toHaveProperty('totalQuantity', 8);
+      expect(database.books[1]).toHaveProperty('name', 'Primary Science2');
       expect(grace.updateBook(59, {totalQuantity: 2})).toBe('Invalid id');
     })
   });

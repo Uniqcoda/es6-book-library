@@ -20,22 +20,26 @@ describe('test for user methods', function () {
       expect(database.users.length).toBe(4);
     });
   });
-  //test for searching user by name
   describe('test for searching a user by name', function () {
     test('returns an array of the searched user result', function () {
       var result = moses.searchUser('Busayo');
-      expect(result[0]).toHaveProperty('name', 'Busayo Onyeka')
+      expect(result[0]).toHaveProperty('name', 'Busayo Onyeka');
+      expect(busayo.searchUser('Tolu')).toBe('name not found');
     })
   })
 
-  // test for updating user
   describe('test for updating user', function () {
     test('updates user properties', function () {
-      daniel.updateUser({'email': 'danieldude@gmail.com'})
-      expect(database.users[0]).toHaveProperty('email', 'danieldude@gmail.com')
+      busayo.updateUser({'email': 'bossbaby@gmail.com'})
+      expect(database.users[2]).toHaveProperty('email', 'bossbaby@gmail.com')
     })
   })
-  // test for deleting user
+  describe('test for admin deleting a user', function () {
+    test('user deletes his account', function () {
+      busayo.delete();
+      expect(database.users[3]).toBeFalsy();
+    })
+  })
 
   describe('test for user searching a book by name', function () {
     moses.createBook('Physics1', 'David Mogbeyi', 5);

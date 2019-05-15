@@ -29,14 +29,9 @@ User.prototype.searchUser = function (name) {
 
 // User updates his/her properties
 User.prototype.updateUser = function (updateObject) {
-      // update property by key and value parameter
-      this.email = updateObject.email || this.email;
-      return 'Update was successful';
-}
-
-// User searches for book by name
-User.prototype.searchBook = function (name) {
-  return Book.searchBook(name);
+  // update property by key and value parameter
+  this.email = updateObject.email;
+  return 'Update was successful';
 }
 
 // read a user by id method
@@ -49,5 +44,21 @@ User.prototype.readUser = function (userId) {
   }
   return 'Invalid id';
 }
+
+// user deletes account
+User.prototype.delete = function () {
+  for (let i = 0; i < database.users.length; i++) {
+    if (database.users[i].userId === this.userId) {
+      database.users.splice(i, 1);
+      return 'Account successfully deleted'
+    }
+  }
+}
+
+// User searches for book by name
+User.prototype.searchBook = function (name) {
+  return Book.searchBook(name);
+}
+
 
 module.exports = User;
