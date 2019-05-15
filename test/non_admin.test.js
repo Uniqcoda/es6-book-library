@@ -31,4 +31,14 @@ describe('test for non-admin methods', function () {
       expect(result).toBe('Request submitted!')      
     })
   })
+  // describe('test case for non-admin requesting to return a book', function () {
+  //   var result = busayo.requestToReturn('Physics1', 1);
+  //   test('adds a request to the returnRequests array', function () {
+  //     // confirm that the request was added to the returnRequests array
+  //     expect(database.returnRequests.length).toBe(1);
+  //     expect(database.returnRequests[0]).toHaveProperty('userId', 1);
+  //     // check if confirmation statement is returned
+  //     expect(result).toBe('Request submitted!')      
+  //   })
+  // })
 })

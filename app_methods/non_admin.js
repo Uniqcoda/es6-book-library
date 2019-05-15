@@ -19,5 +19,5 @@ NonAdmin.prototype.requestToBorrow = function (bookName, bookId) {
   BorrowRequest.makeRequest(bookName, bookId, userId = this.userId, userType = this.userType);
   return 'Request submitted!';
 }
-// Non-admin returns a book
+// Non-admin returns a book, (s)he won't be able to borrow more than 3 books at a time. This means that no user is allowed to hold more than 3 borrowed books
 module.exports = NonAdmin;

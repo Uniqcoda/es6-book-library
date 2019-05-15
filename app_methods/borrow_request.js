@@ -20,6 +20,8 @@ BorrowRequest.readAllRequests = function () {
   return database.borrowRequests;
 }
 
+// METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
+
 BorrowRequest.approveRequest = function () {
   // sort array by user type
   var obj = { Teacher: 1, 'Senior Student': 2, 'Junior Student': 3 }
@@ -33,6 +35,12 @@ BorrowRequest.approveRequest = function () {
     var userId = database.borrowRequests[index].userId;
     var user = User.readUser(userId);
     var book = Book.readABook(bookId);
+    // confirm that user is not requesting to borrow a more than once
+    if (user.booksBorrowed.indexOf(book.name) > -1) {
+      database.borrowRequests[index].isApproved = 'You have already borrowed this book!';
+      continue;
+    }
+
     // check if user has borrowed up to 3 books without returning any
     if (user.booksBorrowed.length > 2) {
       database.borrowRequests[index].isApproved = 'You have exceeded the borrow limit per person!';

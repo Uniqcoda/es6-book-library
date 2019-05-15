@@ -75,18 +75,25 @@ describe('test cases for Admin methods', function () {
   austin.requestToBorrow('Science2', 2);
   austin.requestToBorrow('Agriculture1', 5)
 
-  describe('test for admin reading all pending requests', function () {
-    test('returns an array of all pending requests', function () {
+  describe('test for admin reading all borrow requests', function () {
+    test('returns an array of all borrow requests', function () {
       expect(moses.readAllRequests().length).toBe(11)
     })
   })
-  describe('test for admin approving pending requests', function () {
+  describe('test for admin approving borrow requests', function () {
     moses.approveRequests();
-    test('', function () {
+    test('confirms approval status of borrowRequests', function () {
       expect(database.borrowRequests[0].isApproved).toBe(true)
-      // expect(database.borrowRequests[2].isApproved).toBe('Book is currently unavailable')
+      expect(database.borrowRequests[1].isApproved).toBe('You have already borrowed this book!')
+
     })
   })
+  console.log(database.books);
+  console.log(database.borrowRequests);
+  // describe('test for admin approving a return request', function () {
+  //   grace.approveReturn();
+  //   test('confirms approval status of returnRequests', function () {
+  //     expect(database.returnRequests[0].isApproved).toBe(true);
+  //   })
+  // })
 })
-console.log(database.books);
-console.log(database.borrowRequests);
