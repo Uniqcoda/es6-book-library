@@ -58,5 +58,8 @@ Admin.prototype.readAllReturnRequests = function () {
   return ReturnRequest.readAllReturnRequests();
 }
 // Admin replaces a returned book
+Admin.prototype.approveReturn = function () {
+  return ReturnRequest.approveReturn();
+}
 
 module.exports = Admin;

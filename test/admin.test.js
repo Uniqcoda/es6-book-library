@@ -104,7 +104,7 @@ describe('test cases for Admin methods', function () {
       expect(moses.readAllReturnRequests().length).toBe(1)
     })
   })
-  describe('test for admin approving a return request', function () {
+  describe('test for admin approving return requests', function () {
     grace.approveReturn();
     test('confirms approval status of returnRequests', function () {
       expect(database.returnRequests[0].isApproved).toBe(true);
