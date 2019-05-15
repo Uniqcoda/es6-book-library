@@ -22,8 +22,8 @@ Admin.prototype.createBook = function (name, author, totalQuantity) {
   return Book.createBook(name, author, totalQuantity);
 }
 // Admin updates book properties by Id
-Admin.prototype.updateBook = function (bookId, updateDetails) {
-  return Book.updateBook(bookId, updateDetails)
+Admin.prototype.updateBook = function (bookId, key, value) {
+  return Book.updateBook(bookId, key, value)
 }
 
 // Admin reads all books available in the database
@@ -41,7 +41,6 @@ Admin.prototype.deleteBook = function (bookId) {
 }
 
 /* METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK */
-
 // Admin reads all pending borrow requests
 Admin.prototype.readBorrowRequests = function () {
   return BorrowRequest.readBorrowRequests();

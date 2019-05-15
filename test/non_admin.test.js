@@ -1,8 +1,6 @@
 var database = require('../app_methods/database');
 var Admin = require('../app_methods/admin');
 var NonAdmin = require('../app_methods/non_admin');
-var BorrowRequest = require('../app_methods/borrow_request');
-var ReturnRequest = require('../app_methods/return_request')
 
 describe('test for non-admin methods', function () {
   var busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');

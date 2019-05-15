@@ -35,10 +35,11 @@ Book.searchBook = function (name) {
 }
 
 // update a book method
-Book.updateBook = function (bookId, updateDetails) {
+Book.updateBook = function (bookId, key, value) {
   for (var index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
-      return Object.assign(database.books[index], updateDetails);
+      // update property by key and value parameter
+      return database.books[index][key] = value;
     }
   }
   return 'Invalid id';

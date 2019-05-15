@@ -1,8 +1,6 @@
 var database = require('../app_methods/database');
 var Admin = require('../app_methods/admin');
-var BorrowRequest = require('../app_methods/borrow_request');
 var NonAdmin = require('../app_methods/non_admin');
-var ReturnRequest = require('../app_methods/return_request')
 
 
 describe('test cases for Admin methods', function () {
@@ -46,9 +44,9 @@ describe('test cases for Admin methods', function () {
   })
   describe('test for admin updating a book by id', function () {
     test('confirms that book was updated', function () {
-      moses.updateBook(1, { totalQuantity: 8 });
+      moses.updateBook(1, 'totalQuantity', 8 /*{ totalQuantity: 8 }*/);
       expect(database.books[0]).toHaveProperty('totalQuantity', 8);
-      expect(grace.updateBook(59, { totalQuantity: 2 })).toBe('Invalid id');
+      expect(grace.updateBook(59, 'totalQuantity', 2)).toBe('Invalid id');
     })
   });
   describe('test for admin reading a book by id', function () {
@@ -109,12 +107,9 @@ describe('test cases for Admin methods', function () {
     test('confirms approval status of returnRequests', function () {
       expect(database.returnRequests[0].isApproved).toBe(true);
     })
-    
-    // remove book from booksBorrowed array of user
     test('test that returned book was removed from booksBorrowed array of user', function () {
       expect(database.users[4].booksBorrowed).toEqual(expect.not.arrayContaining(['Biology1']));
     })
-
     test('confirms that userId was removed from borrowers array of book', function () {
       expect(database.books[0].borrowersId).toEqual(expect.not.arrayContaining([3]));
     })
