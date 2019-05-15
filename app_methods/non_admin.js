@@ -1,6 +1,6 @@
 var database = require('./database');
 var User = require('./user');
-var PendingRequest =require('./pending_request')
+var BorrowRequest =require('./borrow_request')
 
 // NonAdmin constructor
 function NonAdmin(name, email, userType) {
@@ -20,7 +20,7 @@ NonAdmin.prototype.requestToBorrow = function (bookName, bookId) {
   if (this.booksBorrowed.length > 2) {
     return 'You have exceeded the borrow limit per person!'
   }
-  PendingRequest.makeRequest(bookName, bookId, userId = this.userId, userType = this.userType);
+  BorrowRequest.makeRequest(bookName, bookId, userId = this.userId, userType = this.userType);
   return 'Request submitted!';
 }
 // Non-admin returns a book

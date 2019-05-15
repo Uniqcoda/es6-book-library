@@ -1,7 +1,7 @@
 var database = require('../app_methods/database');
 var User = require('../app_methods/user');
 var Book = require('../app_methods/book');
-var PendingRequest = require('./pending_request');
+var BorrowRequest = require('./borrow_request');
 let NonAdmin = require('./non_admin')
 
 // Admin constructor
@@ -44,13 +44,12 @@ Admin.prototype.deleteBook = function (bookId) {
 
 // Admin reads all pending borrow requests
 Admin.prototype.readAllRequests = function () {
-  return PendingRequest.readAllRequests();
+  return BorrowRequest.readAllRequests();
 }
 
 // Admin approves requests in pending requests array
 Admin.prototype.approveRequests = function () {
-  // loop through the pendingRequests array
-  PendingRequest.approveRequest()
+  BorrowRequest.approveRequest()
 }
 
 // Admin replaces a returned book

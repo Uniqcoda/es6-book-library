@@ -1,7 +1,7 @@
 var database = {
   users: [],
   books: [],
-  pendingRequests: []
+  borrowRequests: []
 }
 
 module.exports = database;

@@ -1,6 +1,6 @@
 var database = require('../app_methods/database');
 var Admin = require('../app_methods/admin');
-var PendingRequest = require('../app_methods/pending_request')
+var BorrowRequest = require('../app_methods/borrow_request')
 var NonAdmin = require('../app_methods/non_admin');
 
 
@@ -74,8 +74,8 @@ describe('test cases for Admin methods', function () {
   describe('test for admin approving pending requests', function () {
     moses.approveRequests();
     test('', function () {
-      expect(database.pendingRequests[0].isApproved).toBe(true)
-      expect(database.pendingRequests[2].isApproved).toBe('Book is currently unavailable')
+      expect(database.borrowRequests[0].isApproved).toBe(true)
+      expect(database.borrowRequests[2].isApproved).toBe('Book is currently unavailable')
     })
   })
 

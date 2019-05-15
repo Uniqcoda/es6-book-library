@@ -21,7 +21,8 @@ Book.searchBook = function (name) {
     if (database.books[index].name === name) {
       var bookName = database.books[index].name;
       var bookAuthor = database.books[index].author;
-      booksWithName.push({ name: bookName, author: bookAuthor });
+      var bookId = database.books[index].bookId;
+      booksWithName.push({ name: bookName, author: bookAuthor, bookId: bookId });
     }
   }
   if (booksWithName.length) return booksWithName;
