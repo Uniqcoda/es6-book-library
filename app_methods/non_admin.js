@@ -1,6 +1,7 @@
 var database = require('./database');
 var User = require('./user');
-var BorrowRequest =require('./borrow_request')
+var BorrowRequest =require('./borrow_request');
+var ReturnRequest = require('./return_request');
 
 // NonAdmin constructor
 function NonAdmin(name, email, userType) {
@@ -20,5 +21,8 @@ NonAdmin.prototype.requestToBorrow = function (bookName, bookId) {
   return 'Request submitted!';
 }
 // Non-admin returns a book, (s)he won't be able to borrow more than 3 books at a time. This means that no user is allowed to hold more than 3 borrowed books
-
+NonAdmin.prototype.requestToReturn = function (bookName, bookId) {
+  ReturnRequest.makeRequest(bookName, bookId, userId = this.userId, userType = this.userType);
+  return 'Request submitted!';
+}
 module.exports = NonAdmin;

@@ -96,8 +96,8 @@ describe('test cases for Admin methods', function () {
 
     })
   })
-  console.log(database.books);
-  console.log(database.borrowRequests);
+  // console.log(database.books);
+  // console.log(database.borrowRequests);
   // describe('test for admin approving a return request', function () {
   //   grace.approveReturn();
   //   test('confirms approval status of returnRequests', function () {
