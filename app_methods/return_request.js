@@ -24,7 +24,7 @@ ReturnRequest.readReturnRequests = function () {
 
 // METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
 // approve return requests in database
-ReturnRequest.approveReturn = function () {
+ReturnRequest.approveReturnRequests = function () {
   // loop through the array of returnRequests
   for (var index = 0; index < database.returnRequests.length; index++) {
     // extract the bookId and userId from each pendingRequest

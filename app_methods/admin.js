@@ -48,8 +48,8 @@ Admin.prototype.readBorrowRequests = function () {
 }
 
 // Admin approves requests in pending requests array
-Admin.prototype.approveRequests = function () {
-  BorrowRequest.approveRequest();
+Admin.prototype.approveBorrowRequests = function () {
+  BorrowRequest.approveBorrowRequests();
 }
 
 // Admin reads all pending return requests
@@ -57,8 +57,8 @@ Admin.prototype.readReturnRequests = function () {
   return ReturnRequest.readReturnRequests();
 }
 // Admin approves return and replaces a returned book in the library
-Admin.prototype.approveReturn = function () {
-  return ReturnRequest.approveReturn();
+Admin.prototype.approveReturnRequests = function () {
+  return ReturnRequest.approveReturnRequests();
 }
 
 module.exports = Admin;

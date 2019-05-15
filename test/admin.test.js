@@ -90,15 +90,13 @@ describe('test cases for Admin methods', function () {
     })
   })
   describe('test for admin approving borrow requests', function () {
-    moses.approveRequests();
+    moses.approveBorrowRequests();
     test('confirms approval status of borrowRequests', function () {
       expect(database.borrowRequests[0].isApproved).toBe(true)
       expect(database.borrowRequests[1].isApproved).toBe('You have already borrowed this book!')
 
     })
   })
-  // console.log(database.books);
-  // console.log(database.borrowRequests);
   austin.requestToReturn('Biology1', 6);
   austin.requestToReturn('Social Studies2', 19)
   describe('test for admin reading all return requests', function () {
@@ -106,7 +104,7 @@ describe('test cases for Admin methods', function () {
       expect(moses.readReturnRequests().length).toBe(2)
     })
   })
-  grace.approveReturn();
+  grace.approveReturnRequests();
   describe('test for admin approving return requests', function () {
     test('confirms approval status of returnRequests', function () {
       expect(database.returnRequests[0].isApproved).toBe(true);
@@ -121,6 +119,5 @@ describe('test cases for Admin methods', function () {
       expect(database.books[0].borrowersId).toEqual(expect.not.arrayContaining([3]));
     })
   })
-  console.log(database);
-  
+  // console.log(database);
 })
