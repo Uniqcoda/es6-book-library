@@ -2,6 +2,7 @@ var database = require('../app_methods/database');
 var Admin = require('../app_methods/admin');
 var BorrowRequest = require('../app_methods/borrow_request');
 var NonAdmin = require('../app_methods/non_admin');
+var ReturnRequest = require('../app_methods/return_request')
 
 
 describe('test cases for Admin methods', function () {
@@ -104,10 +105,24 @@ describe('test cases for Admin methods', function () {
       expect(moses.readAllReturnRequests().length).toBe(1)
     })
   })
+  grace.approveReturn();
   describe('test for admin approving return requests', function () {
-    grace.approveReturn();
     test('confirms approval status of returnRequests', function () {
       expect(database.returnRequests[0].isApproved).toBe(true);
     })
+    console.log(database.returnRequests);
+    console.log(database.books[0]);
+    console.log(database.users[2]);
+
+    test('confirms that userId was removed from borrowers array of book', function () {
+      expect(database.books[0].borrowersId).toEqual(expect.not.arrayContaining([3]));
+    })
+
+    // remove book from booksBorrowed array of user
+    test('test that returned book was removed from booksBorrowed array of user', function () {
+      expect(database.users[2].booksBorrowed).toEqual(expect.not.arrayContaining(['Physics1']));
+    })
   })
+  // console.log(database.users);
+
 })

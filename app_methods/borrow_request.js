@@ -11,16 +11,18 @@ function BorrowRequest(bookName, bookId, userId, userType) {
   database.borrowRequests.push(this);
 }
 
+// make a request to borrow book
 BorrowRequest.makeRequest = function (bookName, bookId, userId, userType) {
   return new BorrowRequest(bookName, bookId, userId, userType);
 };
 
+// read all requests in database
 BorrowRequest.readAllRequests = function () {
   return database.borrowRequests;
 }
 
 // METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
-
+// attend to all borrow requests in database
 BorrowRequest.approveRequest = function () {
   // sort array by user type
   var obj = { Teacher: 1, 'Senior Student': 2, 'Junior Student': 3 }
@@ -32,7 +34,7 @@ BorrowRequest.approveRequest = function () {
     // extract the bookId and userId from each pendingRequest
     var bookId = database.borrowRequests[index].bookId;
     var userId = database.borrowRequests[index].userId;
-    var user = User.readUser(userId);
+    var user = User.prototype.readUser(userId);
     var book = Book.readABook(bookId);
     // confirm that user is not requesting to borrow a more than once
     if (user.booksBorrowed.indexOf(book.name) > -1) {
@@ -47,7 +49,7 @@ BorrowRequest.approveRequest = function () {
     }
     //if the book is not available
     if (book.quantityAvailable < 1) {
-      database.borrowRequests[index].isApproved = 'Book is currently unavailable';
+      database.borrowRequests[index].isApproved = 'Book taken';
       continue;
     }
     // reduce the quantity available of the book by 1

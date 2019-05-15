@@ -1,4 +1,3 @@
-var database = require('./database');
 var User = require('./user');
 var BorrowRequest =require('./borrow_request');
 var ReturnRequest = require('./return_request');
@@ -9,7 +8,7 @@ function NonAdmin(name, email, userType) {
   this.userType = userType;
   this.booksBorrowed = [];
 }
-
+// NonAdmin prototype should inherit from User prototype
 NonAdmin.prototype = Object.create(User.prototype);
 NonAdmin.prototype.constructor = NonAdmin;
 

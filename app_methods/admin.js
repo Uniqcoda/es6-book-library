@@ -1,21 +1,20 @@
-var database = require('../app_methods/database');
 var User = require('../app_methods/user');
 var Book = require('../app_methods/book');
 var BorrowRequest = require('./borrow_request');
 var ReturnRequest = require('./return_request')
-let NonAdmin = require('./non_admin')
 
 // Admin constructor
 function Admin(name, email) {
   User.call(this, name, email);
 }
 
+// Admin prototype should inherit from User prototype
 Admin.prototype = Object.create(User.prototype);
 Admin.prototype.constructor = Admin;
 
 // Admin reads a user
 Admin.prototype.readUser = function (userId) {
-  return User.readUser(userId)
+  return User.prototype.readUser(userId)
 }
 
 // Admin creates a book (buys a book and adds to the library database)
@@ -50,14 +49,14 @@ Admin.prototype.readAllRequests = function () {
 
 // Admin approves requests in pending requests array
 Admin.prototype.approveRequests = function () {
-  BorrowRequest.approveRequest()
+  BorrowRequest.approveRequest();
 }
 
 // Admin reads all pending return requests
 Admin.prototype.readAllReturnRequests = function () {
   return ReturnRequest.readAllReturnRequests();
 }
-// Admin replaces a returned book
+// Admin approves return and replaces a returned book in the library
 Admin.prototype.approveReturn = function () {
   return ReturnRequest.approveReturn();
 }
