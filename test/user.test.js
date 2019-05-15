@@ -31,7 +31,7 @@ describe('test for user methods', function () {
   // test for updating user
   describe('test for updating user', function () {
     test('updates user properties', function () {
-      daniel.updateUser('email', 'danieldude@gmail.com')
+      daniel.updateUser({'email': 'danieldude@gmail.com'})
       expect(database.users[0]).toHaveProperty('email', 'danieldude@gmail.com')
     })
   })

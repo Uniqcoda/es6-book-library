@@ -27,10 +27,11 @@ User.prototype.searchUser = function (name) {
   return 'name not found';
 }
 
-// Update a user method
-User.prototype.updateUser = function (key, value) {
-  // update property by key and value parameter
-  return this[key] = value;
+// User updates his/her properties
+User.prototype.updateUser = function (updateObject) {
+      // update property by key and value parameter
+      this.email = updateObject.email || this.email;
+      return 'Update was successful';
 }
 
 // User searches for book by name
