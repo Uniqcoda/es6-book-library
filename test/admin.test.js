@@ -9,6 +9,12 @@ describe('test cases for Admin methods', function () {
   moses.save();
   var grace = new Admin('Grace Igbokwe', 'graceg@gmail.com');
   grace.save();
+  var busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
+  busayo.save();
+  var kingsley = new NonAdmin('Kingsley Olatunji', 'kingsleyk@gmail.com', 'Senior Student');
+  kingsley.save();
+  var austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student')
+  austin.save();
 
   describe('test for creating an admin', function () {
     test('checks for instance of Admin', function () {
@@ -16,6 +22,14 @@ describe('test cases for Admin methods', function () {
       expect(database.users[0]).toHaveProperty('name', 'Moses Adebayo');
     });
   });
+  describe('test for admin reading a user',function () {
+    test('returns a book by id', function () {
+      var result =  moses.readUser(4);
+      expect(result.name).toBe('Kingsley Olatunji');
+      expect(grace.readUser(504)).toBe('Invalid id');
+    })
+  })
+
   moses.createBook('Physics1', 'David Mogbeyi', 2);
   grace.createBook('Science2', 'Ochuko Oyebanji', 5);
   moses.createBook('Chemistry3', 'Seun Joeseph', 3);
@@ -57,12 +71,6 @@ describe('test cases for Admin methods', function () {
   })
 
   // TEST FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
-  var busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
-  busayo.save();
-  var kingsley = new NonAdmin('Kingsley Olatunji', 'kingsleyk@gmail.com', 'Senior Student');
-  kingsley.save();
-  var austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student')
-  austin.save();
   busayo.requestToBorrow('Physics1', 1);
   austin.requestToBorrow('Physics1', 1);
   busayo.requestToBorrow('Physics1', 1);
