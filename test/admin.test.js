@@ -22,9 +22,9 @@ describe('test cases for Admin methods', function () {
       expect(database.users[0]).toHaveProperty('name', 'Moses Adebayo');
     });
   });
-  describe('test for admin reading a user',function () {
+  describe('test for admin reading a user', function () {
     test('returns a book by id', function () {
-      var result =  moses.readUser(4);
+      var result = moses.readUser(4);
       expect(result.name).toBe('Kingsley Olatunji');
       expect(grace.readUser(504)).toBe('Invalid id');
     })

@@ -7,10 +7,9 @@ function BorrowRequest(bookName, bookId, userId, userType) {
   this.userType = userType;
   this.bookName = bookName;
   this.bookId = bookId;
-  //push this object to pendingRequest array
+  //push this object to borrowRequests array
   database.borrowRequests.push(this);
 }
-
 
 BorrowRequest.makeRequest = function (bookName, bookId, userId, userType) {
   return new BorrowRequest(bookName, bookId, userId, userType);
@@ -57,10 +56,10 @@ BorrowRequest.approveRequest = function () {
     database.borrowRequests[index].isApproved = true;
     // add userId to borrowersId of book
     book.borrowersId.push(database.borrowRequests[index].userId);
-    console.log(book);
+    // console.log(book);
     // add book to booksBorrowed array of user
     user.booksBorrowed.push(database.borrowRequests[index].bookName);
-    console.log(user);
+    // console.log(user);
   }
 }
 module.exports = BorrowRequest;

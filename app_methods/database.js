@@ -1,7 +1,8 @@
 var database = {
   users: [],
   books: [],
-  borrowRequests: []
+  borrowRequests: [],
+  returnRequests: []
 }
 
 module.exports = database;
