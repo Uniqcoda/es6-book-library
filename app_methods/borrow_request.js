@@ -58,10 +58,8 @@ BorrowRequest.approveBorrowRequests = function () {
     database.borrowRequests[index].isApproved = true;
     // add userId to borrowersId of book
     book.borrowersId.push(database.borrowRequests[index].userId);
-    // console.log(book);
     // add book to booksBorrowed array of user
     user.booksBorrowed.push(database.borrowRequests[index].bookName);
-    // console.log(user);
   }
 }
 module.exports = BorrowRequest;
