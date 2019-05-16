@@ -1,6 +1,6 @@
 var database = require('./database');
 var Book = require('./book');
-var User = require('./user')
+var User = require('./user');
 
 // Return request constructor
 function ReturnRequest(bookName, bookId, userId, userType) {

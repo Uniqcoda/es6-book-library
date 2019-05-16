@@ -4,15 +4,15 @@ var NonAdmin = require('../app_methods/non_admin');
 
 
 describe('test cases for Admin methods', function () {
-  var moses = new Admin('Moses Adebayo', 'mosesm@gmail.com');
+  var moses = new Admin('Moses Adebayo', 'mosesm@gmail.com', 'Librarian');
   moses.save();
-  var grace = new Admin('Grace Igbokwe', 'graceg@gmail.com');
+  var grace = new Admin('Grace Igbokwe', 'graceg@gmail.com', 'Assistant Librarian');
   grace.save();
   var busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
   busayo.save();
   var kingsley = new NonAdmin('Kingsley Olatunji', 'kingsleyk@gmail.com', 'Senior Student');
   kingsley.save();
-  var austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student')
+  var austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student');
   austin.save();
 
   describe('test for creating an admin', function () {
@@ -34,7 +34,7 @@ describe('test cases for Admin methods', function () {
   moses.createBook('Chemistry3', 'Seun Joeseph', 3);
   moses.createBook('Literature2', 'Amakiri Spiff', 1);
   grace.createBook('Agriculture1', 'Mike Ogbonna', 10);
-  grace.createBook('Biology1', 'Mfoniso Abetang', 4)
+  grace.createBook('Biology1', 'Mfoniso Abetang', 4);
 
   describe('test for admin creating a book', function () {
     test('confirms that new book was created', function () {
@@ -45,10 +45,11 @@ describe('test cases for Admin methods', function () {
   describe('test for admin updating a book by id', function () {
     test('confirms that book was updated', function () {
       moses.updateBook(1, { totalQuantity: 8 });
-      grace.updateBook(2,{name: 'Primary Science2'})
+      grace.updateBook(2,{name: 'Primary Science2'});
       expect(database.books[0]).toHaveProperty('totalQuantity', 8);
       expect(database.books[1]).toHaveProperty('name', 'Primary Science2');
       expect(grace.updateBook(59, {totalQuantity: 2})).toBe('Invalid id');
+      expect(grace.updateBook(1, 'name')).toBe('Invalid update parameter');
     })
   });
   describe('test for admin reading a book by id', function () {
@@ -82,26 +83,25 @@ describe('test cases for Admin methods', function () {
   busayo.requestToBorrow('Literature2', 4);
   busayo.requestToBorrow('Agriculture1', 5);
   austin.requestToBorrow('Science2', 2);
-  austin.requestToBorrow('Agriculture1', 5)
+  austin.requestToBorrow('Agriculture1', 5);
 
   describe('test for admin reading all borrow requests', function () {
     test('returns an array of all borrow requests', function () {
-      expect(moses.readBorrowRequests().length).toBe(11)
+      expect(moses.readBorrowRequests().length).toBe(11);
     })
   })
   describe('test for admin approving borrow requests', function () {
     moses.approveBorrowRequests();
     test('confirms approval status of borrowRequests', function () {
-      expect(database.borrowRequests[0].isApproved).toBe(true)
-      expect(database.borrowRequests[1].isApproved).toBe('You have already borrowed this book!')
-
+      expect(database.borrowRequests[0].isApproved).toBe(true);
+      expect(database.borrowRequests[1].isApproved).toBe('You have already borrowed this book!');
     })
   })
   austin.requestToReturn('Biology1', 6);
-  austin.requestToReturn('Social Studies2', 19)
+  austin.requestToReturn('Social Studies2', 19);
   describe('test for admin reading all return requests', function () {
     test('returns an array of all return requests', function () {
-      expect(moses.readReturnRequests().length).toBe(2)
+      expect(moses.readReturnRequests().length).toBe(2);
     })
   })
   grace.approveReturnRequests();
@@ -115,6 +115,6 @@ describe('test cases for Admin methods', function () {
     test('confirms that userId was removed from borrowers array of book', function () {
       expect(database.books[0].borrowersId).toEqual(expect.not.arrayContaining([3]));
     })
-  })
+  })  
   // console.log(database);
 })

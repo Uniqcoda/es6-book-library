@@ -7,7 +7,7 @@ describe('test for non-admin methods', function () {
   busayo.save();
   var kingsley = new NonAdmin('Kingsley Olatunji', 'kingsleyk@gmail.com', 'Senior Student');
   kingsley.save();
-  var austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student')
+  var austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student');
   austin.save();
   var grace = new Admin('Grace Igbokwe', 'graceg@gmail.com');
   grace.save();
@@ -17,7 +17,7 @@ describe('test for non-admin methods', function () {
   describe('test cases for creating a non-admin', function () {
     test('check for instance of NonAdmin', function () {
       expect(busayo instanceof NonAdmin).toBeTruthy();
-      expect(database.users[0]).toHaveProperty('name', 'Busayo Onyeka')
+      expect(database.users[0]).toHaveProperty('name', 'Busayo Onyeka');
     });
   });
   // TEST FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
@@ -28,7 +28,7 @@ describe('test for non-admin methods', function () {
       expect(database.borrowRequests.length).toBe(1);
       expect(database.borrowRequests[0]).toHaveProperty('userId', 1);
       // check if confirmation statement is returned
-      expect(result).toBe('Request submitted!')      
+      expect(result).toBe('Request submitted!');
     })
   })
   describe('test case for non-admin requesting to return a book', function () {
@@ -38,7 +38,7 @@ describe('test for non-admin methods', function () {
       expect(database.returnRequests.length).toBe(1);
       expect(database.returnRequests[0]).toHaveProperty('userId', 1);
       // check if confirmation statement is returned
-      expect(result).toBe('Request submitted!')      
+      expect(result).toBe('Request submitted!');    
     })
   })
 })

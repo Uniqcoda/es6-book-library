@@ -1,6 +1,6 @@
 var database = require('./database');
 var Book = require('./book');
-var User = require('./user')
+var User = require('./user');
 
 function BorrowRequest(bookName, bookId, userId, userType) {
   this.userId = userId;

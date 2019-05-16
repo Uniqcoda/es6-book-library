@@ -30,8 +30,9 @@ describe('test for user methods', function () {
 
   describe('test for updating user', function () {
     test('updates user properties', function () {
-      busayo.updateUser({'email': 'bossbaby@gmail.com'})
-      expect(database.users[2]).toHaveProperty('email', 'bossbaby@gmail.com')
+      busayo.updateUser({ 'email': 'bossbaby@gmail.com' });
+      expect(database.users[2]).toHaveProperty('email', 'bossbaby@gmail.com');
+      expect(busayo.updateUser('email')).toBe('Invalid update parameter');
     })
   })
   describe('test for admin deleting a user', function () {

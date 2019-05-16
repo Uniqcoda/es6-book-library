@@ -1,5 +1,5 @@
 var database = require('./database');
-var generateId = require('./id_generator')
+var generateId = require('./id_generator');
 
 // Book constructor
 function Book(name, author, totalQuantity) {
@@ -7,7 +7,7 @@ function Book(name, author, totalQuantity) {
   this.author = author;
   this.totalQuantity = totalQuantity;
   // use generateId function to generate bookId
-  this.bookId = generateId(database.books, 'bookId')
+  this.bookId = generateId(database.books, 'bookId');
   this.borrowersId = [];
   this.quantityAvailable = this.totalQuantity;
   database.books.push(this);
@@ -20,7 +20,7 @@ Book.createBook = function (name, author, totalQuantity) {
 
 // search a book method
 Book.searchBook = function (name) {
-  var regex = new RegExp(name, 'g')
+  var regex = new RegExp(name, 'g');
   var booksWithName = [];
   for (var index = 0; index < database.books.length; index++) {
     if (regex.test(database.books[index].name)) {
@@ -36,16 +36,20 @@ Book.searchBook = function (name) {
 
 // update a book method
 Book.updateBook = function (bookId, updateObject) {
-  for (var index = 0; index < database.books.length; index++) {
-    if (database.books[index].bookId === bookId) {
-      // update property with new value or keep old value
-      // it is only the name and total quantity of books that can be updated this way
-      database.books[index].name = updateObject.name || database.books[index].name;
-      database.books[index].totalQuantity = updateObject.totalQuantity || database.books[index].totalQuantity;
-      return 'Update was successful';
+  if (updateObject.name || updateObject.totalQuantity) { // if updateObject has name or totalQuantity property
+    for (var index = 0; index < database.books.length; index++) {
+      if (database.books[index].bookId === bookId) {
+        // update property from the updateObject parameter
+        // update property with new value or keep old value
+        // it is only the name and total quantity of books that can be updated this way
+        database.books[index].name = updateObject.name || database.books[index].name;
+        database.books[index].totalQuantity = updateObject.totalQuantity || database.books[index].totalQuantity;
+        return 'Update was successful';
+      }
     }
+    return 'Invalid id';
   }
-  return 'Invalid id';
+  return 'Invalid update parameter';
 }
 
 // delete a book method
@@ -54,7 +58,7 @@ Book.deleteBook = function (bookId) {
     if (database.books[index].bookId === bookId) {
       // remove book from books array
       database.books.splice(index, 1);
-      return 'Book successfully deleted'
+      return 'Book successfully deleted';
     }
   }
   return 'Invalid id';
