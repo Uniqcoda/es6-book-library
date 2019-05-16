@@ -50,7 +50,7 @@ User.prototype.readUser = function (userId) {
 
 // user deletes account
 User.prototype.delete = function () {
-  for (let i = 0; i < database.users.length; i++) {
+  for (var i = 0; i < database.users.length; i++) {
     if (database.users[i].userId === this.userId) {
       database.users.splice(i, 1);
       return 'Account successfully deleted';
