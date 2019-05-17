@@ -1,6 +1,6 @@
-var database = require('../app_methods/database');
-var Admin = require('../app_methods/admin');
-var NonAdmin = require('../app_methods/non_admin');
+var database = require('../app/database');
+var Admin = require('../app/admin');
+var NonAdmin = require('../app/non-admin');
 
 
 describe('test cases for Admin methods', function () {

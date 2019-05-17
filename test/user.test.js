@@ -1,7 +1,7 @@
-var database = require('../app_methods/database');
-var User = require('../app_methods/user');
-var Admin = require('../app_methods/admin');
-var NonAdmin = require('../app_methods/non_admin');
+var database = require('../app/database');
+var User = require('../app/user');
+var Admin = require('../app/admin');
+var NonAdmin = require('../app/non-admin');
 
 
 describe('test for user methods', function () {
