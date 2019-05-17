@@ -44,21 +44,21 @@ Admin.prototype.deleteBook = function (bookId) {
 /* METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK */
 // Admin reads all pending borrow requests
 Admin.prototype.readBorrowRequests = function () {
-  return BorrowRequest.read();
+  return BorrowRequest.prototype.read();
 }
 
 // Admin approves requests in pending requests array
 Admin.prototype.approveBorrowRequests = function () {
-  BorrowRequest.approve();
+  BorrowRequest.prototype.approve();
 }
 
 // Admin reads all pending return requests
 Admin.prototype.readReturnRequests = function () {
-  return ReturnRequest.read();
+  return ReturnRequest.prototype.read();
 }
 // Admin approves return and replaces a returned book in the library
 Admin.prototype.approveReturnRequests = function () {
-  return ReturnRequest.approve();
+  return ReturnRequest.prototype.approve();
 }
 
 module.exports = Admin;

@@ -10,19 +10,23 @@ function BorrowRequest(bookName, bookId, userId, userType) {
   database.borrowRequests.push(this);
 }
 
+// BorrowRequest prototype should inherit from Request prototype
+BorrowRequest.prototype = Object.create(Request.prototype);
+BorrowRequest.prototype.constructor = BorrowRequest;
+
 // make a request to borrow book
-BorrowRequest.create = function (bookName, bookId, userId, userType) {
+BorrowRequest.prototype.create = function (bookName, bookId, userId, userType) {
   return new BorrowRequest(bookName, bookId, userId, userType);
 };
 
 // read all requests in database
-BorrowRequest.read = function () {
+BorrowRequest.prototype.read = function () {
   return database.borrowRequests;
 }
 
 // METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
 // attend to all borrow requests in database
-BorrowRequest.approve = function () {
+BorrowRequest.prototype.approve = function () {
   // sort array by user type
   var obj = { Teacher: 1, 'Senior Student': 2, 'Junior Student': 3 }
   database.borrowRequests.sort(function (a, b) {

@@ -10,20 +10,24 @@ Request.call(this, bookName, bookId, userId);
   database.returnRequests.push(this);
 }
 
+// ReturnRequest prototype should inherit from Request prototype
+ReturnRequest.prototype = Object.create(Request.prototype);
+ReturnRequest.prototype.constructor = ReturnRequest;
+
 // make a request to return book
-ReturnRequest.create = function (bookName, bookId, userId) {
+ReturnRequest.prototype.create = function (bookName, bookId, userId) {
   return new ReturnRequest(bookName, bookId, userId);
 };
 
 // read all return requests
-ReturnRequest.read = function () {
+ReturnRequest.prototype.read = function () {
   return database.returnRequests;
 }
 
 
 // METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
 // approve return requests in database
-ReturnRequest.approve = function () {
+ReturnRequest.prototype.approve = function () {
   // loop through the array of returnRequests
   for (var index = 0; index < database.returnRequests.length; index++) {
     // extract the bookId and userId from each return request
