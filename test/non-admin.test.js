@@ -22,7 +22,7 @@ describe('test for non-admin methods', function () {
   });
   // TEST FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
   describe('test case for non-admin requesting to borrow a book', function () {
-    var result = busayo.requestToBorrow('Physics1', 1);
+    var result = busayo.requestToBorrowBook('Physics1', 1);
     test('adds a request to the borrowRequests array', function () {
       // confirm that the request was added to the borrowRequests array
       expect(database.borrowRequests.length).toBe(1);
@@ -32,7 +32,7 @@ describe('test for non-admin methods', function () {
     })
   })
   describe('test case for non-admin requesting to return a book', function () {
-    var result = busayo.requestToReturn('Physics1', 1);
+    var result = busayo.requestToReturnBook('Physics1', 1);
     test('adds a request to the returnRequests array', function () {
       // confirm that the request was added to the returnRequests array
       expect(database.returnRequests.length).toBe(1);

@@ -74,17 +74,17 @@ describe('test cases for Admin methods', function () {
   })
 
   // TEST FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
-  busayo.requestToBorrow('Physics1', 1);
-  austin.requestToBorrow('Physics1', 1);
-  busayo.requestToBorrow('Physics1', 1);
-  kingsley.requestToBorrow('Physics1', 1);
-  austin.requestToBorrow('Chemistry3', 3);
-  kingsley.requestToBorrow('Literature2', 4);
-  austin.requestToBorrow('Biology1', 6);
-  busayo.requestToBorrow('Literature2', 4);
-  busayo.requestToBorrow('Agriculture1', 5);
-  austin.requestToBorrow('Science2', 2);
-  austin.requestToBorrow('Agriculture1', 5);
+  busayo.requestToBorrowBook('Physics1', 1);
+  austin.requestToBorrowBook('Physics1', 1);
+  busayo.requestToBorrowBook('Physics1', 1);
+  kingsley.requestToBorrowBook('Physics1', 1);
+  austin.requestToBorrowBook('Chemistry3', 3);
+  kingsley.requestToBorrowBook('Literature2', 4);
+  austin.requestToBorrowBook('Biology1', 6);
+  busayo.requestToBorrowBook('Literature2', 4);
+  busayo.requestToBorrowBook('Agriculture1', 5);
+  austin.requestToBorrowBook('Science2', 2);
+  austin.requestToBorrowBook('Agriculture1', 5);
 
   describe('test for admin reading all borrow requests', function () {
     test('returns an array of all borrow requests', function () {
@@ -108,8 +108,8 @@ describe('test cases for Admin methods', function () {
     })
   })  
 
-  austin.requestToReturn('Biology1', 6);
-  austin.requestToReturn('Social Studies2', 19);
+  austin.requestToReturnBook('Biology1', 6);
+  austin.requestToReturnBook('Social Studies2', 19);
   describe('test for admin reading all return requests', function () {
     test('returns an array of all return requests', function () {
       expect(moses.readReturnRequests().length).toBe(2);
