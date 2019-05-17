@@ -20,7 +20,9 @@ Book.create = function (name, author, totalQuantity) {
 
 // search a book method
 Book.search = function (name) {
+  // a regular expression to match any book with such a name
   var regex = new RegExp(name, 'g');
+  // an array to store all matched books
   var booksWithName = [];
   for (var index = 0; index < database.books.length; index++) {
     if (regex.test(database.books[index].name)) {

@@ -16,7 +16,9 @@ User.prototype.save = function () {
 
 // search a user method
 User.prototype.searchUser = function (name) {
+    // a regular expression to match any user with such a name
   var regex = new RegExp(name, 'g');
+    // an array to store all matched users
   var usersWithName = [];
   for (var index = 0; index < database.users.length; index++) {
     if (regex.test(database.users[index].name)) {
