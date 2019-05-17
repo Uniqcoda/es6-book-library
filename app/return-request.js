@@ -1,12 +1,11 @@
+var Request = require('./request');
 var database = require('./database');
 var Book = require('./book');
 var User = require('./user');
 
 // Return request constructor
 function ReturnRequest(bookName, bookId, userId) {
-  this.userId = userId;
-  this.bookName = bookName;
-  this.bookId = bookId;
+Request.call(this, bookName, bookId, userId);
   //push this object to returnRequests array
   database.returnRequests.push(this);
 }

@@ -1,12 +1,11 @@
+var Request = require('./request');
 var database = require('./database');
 var Book = require('./book');
 var User = require('./user');
 
 function BorrowRequest(bookName, bookId, userId, userType) {
-  this.userId = userId;
+  Request.call(this, bookName, bookId, userId);
   this.userType = userType;
-  this.bookName = bookName;
-  this.bookId = bookId;
   //push this object to borrowRequests array
   database.borrowRequests.push(this);
 }
