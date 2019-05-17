@@ -35,6 +35,7 @@ describe('test cases for Admin methods', function () {
   moses.createBook('Literature2', 'Amakiri Spiff', 1);
   grace.createBook('Agriculture1', 'Mike Ogbonna', 10);
   grace.createBook('Biology1', 'Mfoniso Abetang', 4);
+  moses.createBook('Ecconomis', 'Rukevwe Nathan', 4)
 
   describe('test for admin creating a book', function () {
     test('confirms that new book was created', function () {
@@ -45,10 +46,10 @@ describe('test cases for Admin methods', function () {
   describe('test for admin updating a book by id', function () {
     test('confirms that book was updated', function () {
       moses.updateBook(1, { totalQuantity: 8 });
-      grace.updateBook(2,{name: 'Primary Science2'});
+      grace.updateBook(2, { name: 'Primary Science2' });
       expect(database.books[0]).toHaveProperty('totalQuantity', 8);
       expect(database.books[1]).toHaveProperty('name', 'Primary Science2');
-      expect(grace.updateBook(59, {totalQuantity: 2})).toBe('Invalid id');
+      expect(grace.updateBook(59, { totalQuantity: 2 })).toBe('Invalid id');
       expect(grace.updateBook(1, 'name')).toBe('Invalid update parameter');
     })
   });
@@ -61,13 +62,13 @@ describe('test cases for Admin methods', function () {
   })
   describe('test for admin reading all books in the database', function () {
     test('returns all books in the database', function () {
-      expect(moses.readAllBooks().length).toBe(6);
+      expect(moses.readAllBooks().length).toBe(7);
     })
   })
   describe('test for admin deleting a book by id', function () {
     test('deletes book fron database', function () {
-      grace.deleteBook(1);
-      expect(database.books.length).toEqual(5);
+      grace.deleteBook(6);
+      expect(database.books.length).toEqual(6);
       expect(grace.deleteBook(200)).toBe('Invalid id');
     })
   })
@@ -90,6 +91,7 @@ describe('test cases for Admin methods', function () {
       expect(moses.readBorrowRequests().length).toBe(11);
     })
   })
+
   describe('test for admin approving borrow requests', function () {
     moses.approveBorrowRequests();
     test('confirms approval status of borrowRequests', function () {
@@ -97,6 +99,15 @@ describe('test cases for Admin methods', function () {
       expect(database.borrowRequests[1].isApproved).toBe('You have already borrowed this book!');
     })
   })
+
+  // assuming a book was updated by changing the quantity available
+  moses.updateBook(3, { totalQuantity: 6 });
+  describe('test case for updating the quantity of a book', function () {
+    test('confirms that the quantity available is changed in respect to the new total quantity', function () {
+      expect(database.books[2].quantityAvailable).toBe(5);
+    })
+  })  
+
   austin.requestToReturn('Biology1', 6);
   austin.requestToReturn('Social Studies2', 19);
   describe('test for admin reading all return requests', function () {
@@ -113,8 +124,8 @@ describe('test cases for Admin methods', function () {
       expect(database.users[4].booksBorrowed).toEqual(expect.not.arrayContaining(['Biology1']));
     })
     test('confirms that userId was removed from borrowers array of book', function () {
-      expect(database.books[0].borrowersId).toEqual(expect.not.arrayContaining([3]));
+      expect(database.books[5].borrowersId).toEqual(expect.not.arrayContaining([3]));
     })
-  })  
+  })
   // console.log(database);
 })

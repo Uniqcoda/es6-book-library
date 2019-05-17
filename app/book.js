@@ -38,14 +38,18 @@ Book.search = function (name) {
 
 // update a book method
 Book.update = function (bookId, updateObject) {
-  if (updateObject.name || updateObject.totalQuantity) { // if updateObject has name or totalQuantity property
+  // if updateObject has name, author or totalQuantity property
+  if (updateObject.name || updateObject.author || updateObject.totalQuantity) { 
     for (var index = 0; index < database.books.length; index++) {
       if (database.books[index].bookId === bookId) {
         // update property from the updateObject parameter
         // update property with new value or keep old value
-        // it is only the name and total quantity of books that can be updated this way
+        // it is only the name, author and total quantity of books that can be updated this way
         database.books[index].name = updateObject.name || database.books[index].name;
+        database.books[index].author = updateObject.author || database.books[index].author;
         database.books[index].totalQuantity = updateObject.totalQuantity || database.books[index].totalQuantity;
+        // edit the quantity available to reflect the new total quantity
+        database.books[index].quantityAvailable = database.books[index].totalQuantity - database.books[index].borrowersId.length
         return 'Update was successful';
       }
     }
