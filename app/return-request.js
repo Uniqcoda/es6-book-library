@@ -12,19 +12,19 @@ function ReturnRequest(bookName, bookId, userId) {
 }
 
 // make a request to return book
-ReturnRequest.makeRequest = function (bookName, bookId, userId) {
+ReturnRequest.create = function (bookName, bookId, userId) {
   return new ReturnRequest(bookName, bookId, userId);
 };
 
 // read all return requests
-ReturnRequest.readReturnRequests = function () {
+ReturnRequest.read = function () {
   return database.returnRequests;
 }
 
 
 // METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
 // approve return requests in database
-ReturnRequest.approveReturnRequests = function () {
+ReturnRequest.approve = function () {
   // loop through the array of returnRequests
   for (var index = 0; index < database.returnRequests.length; index++) {
     // extract the bookId and userId from each return request
@@ -32,7 +32,7 @@ ReturnRequest.approveReturnRequests = function () {
     var bookName = database.returnRequests[index].bookName;
     var userId = database.returnRequests[index].userId;
     var user = User.prototype.readUser(userId);
-    var book = Book.readABook(bookId);
+    var book = Book.read(bookId);
     // check if book exists
     if (book === 'Invalid id') {
       return database.returnRequests[index].isApproved = 'Invalid book id';

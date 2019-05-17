@@ -20,45 +20,45 @@ Admin.prototype.readUser = function (userId) {
 
 // Admin creates a book (buys a book and adds to the library database)
 Admin.prototype.createBook = function (name, author, totalQuantity) {
-  return Book.createBook(name, author, totalQuantity);
+  return Book.create(name, author, totalQuantity);
 }
 // Admin updates book properties by Id
 Admin.prototype.updateBook = function (bookId, key, value) {
-  return Book.updateBook(bookId, key, value);
+  return Book.update(bookId, key, value);
 }
 
 // Admin reads all books available in the database
 Admin.prototype.readAllBooks = function () {
-  return Book.readAllBooks();
+  return Book.readAll();
 }
 // Admin reads a book by Id
 Admin.prototype.readABook = function (bookId) {
-  return Book.readABook(bookId);
+  return Book.read(bookId);
 }
 
 // Admin deletes a book by Id
 Admin.prototype.deleteBook = function (bookId) {
-  return Book.deleteBook(bookId);
+  return Book.delete(bookId);
 }
 
 /* METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK */
 // Admin reads all pending borrow requests
 Admin.prototype.readBorrowRequests = function () {
-  return BorrowRequest.readBorrowRequests();
+  return BorrowRequest.read();
 }
 
 // Admin approves requests in pending requests array
 Admin.prototype.approveBorrowRequests = function () {
-  BorrowRequest.approveBorrowRequests();
+  BorrowRequest.approve();
 }
 
 // Admin reads all pending return requests
 Admin.prototype.readReturnRequests = function () {
-  return ReturnRequest.readReturnRequests();
+  return ReturnRequest.read();
 }
 // Admin approves return and replaces a returned book in the library
 Admin.prototype.approveReturnRequests = function () {
-  return ReturnRequest.approveReturnRequests();
+  return ReturnRequest.approve();
 }
 
 module.exports = Admin;

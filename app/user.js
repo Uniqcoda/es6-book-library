@@ -60,7 +60,7 @@ User.prototype.delete = function () {
 
 // User searches for book by name
 User.prototype.searchBook = function (name) {
-  return Book.searchBook(name);
+  return Book.search(name);
 }
 
 

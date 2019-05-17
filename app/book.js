@@ -14,12 +14,12 @@ function Book(name, author, totalQuantity) {
 }
 
 // create a book method
-Book.createBook = function (name, author, totalQuantity) {
+Book.create = function (name, author, totalQuantity) {
   return new Book(name, author, totalQuantity);
 }
 
 // search a book method
-Book.searchBook = function (name) {
+Book.search = function (name) {
   var regex = new RegExp(name, 'g');
   var booksWithName = [];
   for (var index = 0; index < database.books.length; index++) {
@@ -35,7 +35,7 @@ Book.searchBook = function (name) {
 }
 
 // update a book method
-Book.updateBook = function (bookId, updateObject) {
+Book.update = function (bookId, updateObject) {
   if (updateObject.name || updateObject.totalQuantity) { // if updateObject has name or totalQuantity property
     for (var index = 0; index < database.books.length; index++) {
       if (database.books[index].bookId === bookId) {
@@ -53,7 +53,7 @@ Book.updateBook = function (bookId, updateObject) {
 }
 
 // delete a book method
-Book.deleteBook = function (bookId) {
+Book.delete = function (bookId) {
   for (var index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
       // remove book from books array
@@ -65,7 +65,7 @@ Book.deleteBook = function (bookId) {
 }
 
 // read a book method
-Book.readABook = function (bookId) {
+Book.read = function (bookId) {
   for (var index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
       return database.books[index];
@@ -75,7 +75,7 @@ Book.readABook = function (bookId) {
 }
 
 // read all books method
-Book.readAllBooks = function () {
+Book.readAll = function () {
   return database.books;
 }
 module.exports = Book;

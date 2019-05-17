@@ -12,18 +12,18 @@ function BorrowRequest(bookName, bookId, userId, userType) {
 }
 
 // make a request to borrow book
-BorrowRequest.makeRequest = function (bookName, bookId, userId, userType) {
+BorrowRequest.create = function (bookName, bookId, userId, userType) {
   return new BorrowRequest(bookName, bookId, userId, userType);
 };
 
 // read all requests in database
-BorrowRequest.readBorrowRequests = function () {
+BorrowRequest.read = function () {
   return database.borrowRequests;
 }
 
 // METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
 // attend to all borrow requests in database
-BorrowRequest.approveBorrowRequests = function () {
+BorrowRequest.approve = function () {
   // sort array by user type
   var obj = { Teacher: 1, 'Senior Student': 2, 'Junior Student': 3 }
   database.borrowRequests.sort(function (a, b) {
@@ -36,7 +36,7 @@ BorrowRequest.approveBorrowRequests = function () {
     var userId = database.borrowRequests[index].userId;
     // read user and book
     var user = User.prototype.readUser(userId);
-    var book = Book.readABook(bookId);
+    var book = Book.read(bookId);
     // confirm that user is not requesting to borrow a book more than once
     if (user.booksBorrowed.indexOf(book.name) > -1) {
       database.borrowRequests[index].isApproved = 'You have already borrowed this book!';
