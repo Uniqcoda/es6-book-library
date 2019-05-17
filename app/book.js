@@ -14,12 +14,12 @@ function Book(name, author, totalQuantity) {
 }
 
 // create a book method
-Book.create = function (name, author, totalQuantity) {
+Book.prototype.create = function (name, author, totalQuantity) {
   return new Book(name, author, totalQuantity);
 }
 
 // search a book method
-Book.search = function (name) {
+Book.prototype.search = function (name) {
   // a regular expression to match any book with such a name
   var regex = new RegExp(name, 'g');
   // an array to store all matched books
@@ -37,7 +37,7 @@ Book.search = function (name) {
 }
 
 // update a book method
-Book.update = function (bookId, updateObject) {
+Book.prototype.update = function (bookId, updateObject) {
   // if updateObject has name, author or totalQuantity property
   if (updateObject.name || updateObject.author || updateObject.totalQuantity) { 
     for (var index = 0; index < database.books.length; index++) {
@@ -59,7 +59,7 @@ Book.update = function (bookId, updateObject) {
 }
 
 // delete a book method
-Book.delete = function (bookId) {
+Book.prototype.delete = function (bookId) {
   for (var index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
       // remove book from books array
@@ -71,7 +71,7 @@ Book.delete = function (bookId) {
 }
 
 // read a book method
-Book.read = function (bookId) {
+Book.prototype.read = function (bookId) {
   for (var index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
       return database.books[index];
@@ -81,7 +81,7 @@ Book.read = function (bookId) {
 }
 
 // read all books method
-Book.readAll = function () {
+Book.prototype.readAll = function () {
   return database.books;
 }
 module.exports = Book;

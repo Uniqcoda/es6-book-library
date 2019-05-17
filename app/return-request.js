@@ -32,7 +32,7 @@ ReturnRequest.approve = function () {
     var bookName = database.returnRequests[index].bookName;
     var userId = database.returnRequests[index].userId;
     var user = User.prototype.readUser(userId);
-    var book = Book.read(bookId);
+    var book = Book.prototype.read(bookId);
     // check if book exists
     if (book === 'Invalid id') {
       return database.returnRequests[index].isApproved = 'Invalid book id';

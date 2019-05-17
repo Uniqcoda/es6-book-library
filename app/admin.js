@@ -20,25 +20,25 @@ Admin.prototype.readUser = function (userId) {
 
 // Admin creates a book (buys a book and adds to the library database)
 Admin.prototype.createBook = function (name, author, totalQuantity) {
-  return Book.create(name, author, totalQuantity);
+  return Book.prototype.create(name, author, totalQuantity);
 }
 // Admin updates book properties by Id
 Admin.prototype.updateBook = function (bookId, key, value) {
-  return Book.update(bookId, key, value);
+  return Book.prototype.update(bookId, key, value);
 }
 
 // Admin reads all books available in the database
 Admin.prototype.readAllBooks = function () {
-  return Book.readAll();
+  return Book.prototype.readAll();
 }
 // Admin reads a book by Id
 Admin.prototype.readABook = function (bookId) {
-  return Book.read(bookId);
+  return Book.prototype.read(bookId);
 }
 
 // Admin deletes a book by Id
 Admin.prototype.deleteBook = function (bookId) {
-  return Book.delete(bookId);
+  return Book.prototype.delete(bookId);
 }
 
 /* METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK */
