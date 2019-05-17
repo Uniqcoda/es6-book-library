@@ -28,9 +28,9 @@ BorrowRequest.prototype.read = function () {
 // attend to all borrow requests in database
 BorrowRequest.prototype.approve = function () {
   // sort array by user type
-  var obj = { Teacher: 1, 'Senior Student': 2, 'Junior Student': 3 }
-  database.borrowRequests.sort(function (a, b) {
-    return obj[a.userType] - obj[b.userType];
+  var priority = { 'Teacher': 1, 'Senior Student': 2, 'Junior Student': 3 }
+  database.borrowRequests.sort(function (user1, user2) {
+    return priority[user1.userType] - priority[user2.userType];
   });
   // loop through the sorted array of books
   for (var index = 0; index < database.borrowRequests.length; index++) {
