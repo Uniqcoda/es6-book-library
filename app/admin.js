@@ -19,8 +19,8 @@ class Admin extends User {
 	// Admin creates a book (buys a book and adds to the library database)
 	createBook(name, author, totalQuantity) {
 		return Book.prototype.create(name, author, totalQuantity);
-  }
-  
+	}
+
 	// Admin updates book properties by Id
 	updateBook(bookId, key, value) {
 		return Book.prototype.update(bookId, key, value);
@@ -33,7 +33,7 @@ class Admin extends User {
 
 	// Admin reads a book by Id
 	readABook(bookId) {
-		return Book.prototype.read(bookId);
+		return Book.read(bookId);
 	}
 
 	// Admin deletes a book by Id
@@ -55,8 +55,8 @@ class Admin extends User {
 	// Admin reads all pending return requests
 	readReturnRequests() {
 		return ReturnRequest.prototype.read();
-  }
-  
+	}
+
 	// Admin approves return and replaces a returned book in the library
 	approveReturnRequests() {
 		return ReturnRequest.prototype.approve();
