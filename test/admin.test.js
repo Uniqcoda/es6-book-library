@@ -1,7 +1,7 @@
-let database = require('../app/database');
-let Admin = require('../app/admin');
-let NonAdmin = require('../app/non-admin');
-
+/* eslint-disable */
+const database = require('../app/database');
+const Admin = require('../app/admin');
+const NonAdmin = require('../app/non-admin');
 
 describe('test cases for Admin methods', function () {
   let moses = new Admin('Moses Adebayo', 'mosesm@gmail.com', 'Librarian');
@@ -106,7 +106,7 @@ describe('test cases for Admin methods', function () {
     test('confirms that the quantity available is changed in respect to the new total quantity', function () {
       expect(database.books[2].quantityAvailable).toBe(5);
     })
-  })  
+  })
 
   austin.requestToReturnBook('Biology1', 6);
   austin.requestToReturnBook('Social Studies2', 19);

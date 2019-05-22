@@ -1,6 +1,6 @@
-let database = require('./database');
-let Book = require('./book');
-let generateId = require('./id-generator');
+const database = require('./database');
+const Book = require('./book');
+const generateId = require('./id-generator');
 
 // user constructor function
 function User(name, email) {

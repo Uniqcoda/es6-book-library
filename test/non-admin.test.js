@@ -1,6 +1,7 @@
-let database = require('../app/database');
-let Admin = require('../app/admin');
-let NonAdmin = require('../app/non-admin');
+/* eslint-disable */
+const database = require('../app/database');
+const Admin = require('../app/admin');
+const NonAdmin = require('../app/non-admin');
 
 describe('test for non-admin methods', function () {
   let busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');

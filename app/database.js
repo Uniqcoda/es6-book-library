@@ -2,7 +2,7 @@ const database = {
   users: [],
   books: [],
   borrowRequests: [],
-  returnRequests: []
-}
+  returnRequests: [],
+};
 
 module.exports = database;

@@ -1,5 +1,5 @@
-let database = require('./database');
-let generateId = require('./id-generator');
+const database = require('./database');
+const generateId = require('./id-generator');
 
 // Book constructor
 function Book(name, author, totalQuantity) {

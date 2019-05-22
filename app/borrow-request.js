@@ -1,7 +1,7 @@
-let Request = require('./request');
-let database = require('./database');
-let Book = require('./book');
-let User = require('./user');
+const Request = require('./request');
+const database = require('./database');
+const Book = require('./book');
+const User = require('./user');
 
 function BorrowRequest(bookName, bookId, userId, userType) {
   Request.call(this, bookName, bookId, userId);

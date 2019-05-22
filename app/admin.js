@@ -1,7 +1,7 @@
-let User = require('./user');
-let Book = require('./book');
-let BorrowRequest = require('./borrow-request');
-let ReturnRequest = require('./return-request');
+const User = require('./user');
+const Book = require('./book');
+const BorrowRequest = require('./borrow-request');
+const ReturnRequest = require('./return-request');
 
 // Admin constructor
 function Admin(name, email, position) {

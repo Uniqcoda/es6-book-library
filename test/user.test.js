@@ -1,7 +1,8 @@
-let database = require('../app/database');
-let User = require('../app/user');
-let Admin = require('../app/admin');
-let NonAdmin = require('../app/non-admin');
+/* eslint-disable */
+const database = require('../app/database');
+const User = require('../app/user');
+const Admin = require('../app/admin');
+const NonAdmin = require('../app/non-admin');
 
 
 describe('test for user methods', function () {
