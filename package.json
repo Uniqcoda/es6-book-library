@@ -1,0 +1,22 @@
+{
+  "name": "book-library",
+  "version": "1.0.0",
+  "description": "A library where books can be borrowed.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uniqcoda/book-library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uniqcoda/book-library/issues"
+  },
+  "homepage": "https://github.com/Uniqcoda/book-library#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
