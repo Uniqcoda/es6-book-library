@@ -3,16 +3,15 @@ const database = require('./database');
 const Book = require('./book');
 const User = require('./user');
 
-function BorrowRequest(bookName, bookId, userId, userType) {
-  Request.call(this, bookName, bookId, userId);
-  this.userType = userType;
-  //push this object to borrowRequests array
-  database.borrowRequests.push(this);
+// borrow request class
+class BorrowRequest extends Request {
+  constructor(bookName, bookId, userId, userType) {
+    super(bookName, bookId, userId);
+    this.userType = userType;
+    // push this object to borrowRequests array
+    database.borrowRequests.push(this);
+  }
 }
-
-// BorrowRequest prototype should inherit from Request prototype
-BorrowRequest.prototype = Object.create(Request.prototype);
-BorrowRequest.prototype.constructor = BorrowRequest;
 
 // make a request to borrow book
 BorrowRequest.prototype.create = function (bookName, bookId, userId, userType) {

@@ -3,16 +3,14 @@ const database = require('./database');
 const Book = require('./book');
 const User = require('./user');
 
-// Return request constructor
-function ReturnRequest(bookName, bookId, userId) {
-Request.call(this, bookName, bookId, userId);
-  //push this object to returnRequests array
-  database.returnRequests.push(this);
+// Return request class
+class ReturnRequest extends Request {
+  constructor(bookName, bookId, userId) {
+    super(bookName, bookId, userId);
+    // push this object to returnRequests array
+    database.returnRequests.push(this);
+  }
 }
-
-// ReturnRequest prototype should inherit from Request prototype
-ReturnRequest.prototype = Object.create(Request.prototype);
-ReturnRequest.prototype.constructor = ReturnRequest;
 
 // make a request to return book
 ReturnRequest.prototype.create = function (bookName, bookId, userId) {
@@ -41,13 +39,13 @@ ReturnRequest.prototype.approve = function () {
       return database.returnRequests[index].isApproved = 'Invalid book id';
     }
     // remove book from booksBorrowed array of user
-      user.booksBorrowed.splice(user.booksBorrowed.indexOf(bookName), 1);
+    user.booksBorrowed.splice(user.booksBorrowed.indexOf(bookName), 1);
     // approve the return request
     database.returnRequests[index].isApproved = true;
     // remove userId from borrowersId of book
-      book.borrowersId.splice(book.borrowersId.indexOf(userId), 1);
-      // increase the quantity available of the book by 1
-      book.quantityAvailable += 1;
+    book.borrowersId.splice(book.borrowersId.indexOf(userId), 1);
+    // increase the quantity available of the book by 1
+    book.quantityAvailable += 1;
 
   }
 }

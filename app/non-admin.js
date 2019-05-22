@@ -2,15 +2,14 @@ const User = require('./user');
 const BorrowRequest = require('./borrow-request');
 const ReturnRequest = require('./return-request');
 
-// NonAdmin constructor for teachers and students
-function NonAdmin(name, email, userType) {
-  User.call(this, name, email);
-  this.userType = userType;
-  this.booksBorrowed = [];
+// NonAdmin class
+class NonAdmin extends User {
+  constructor(name, email, userType) {
+    super(name, email);
+    this.userType = userType;
+    this.booksBorrowed = [];
+  }
 }
-// NonAdmin prototype should inherit from User prototype
-NonAdmin.prototype = Object.create(User.prototype);
-NonAdmin.prototype.constructor = NonAdmin;
 
 /* METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK */
 

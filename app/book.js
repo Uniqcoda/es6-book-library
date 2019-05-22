@@ -1,16 +1,18 @@
 const database = require('./database');
 const generateId = require('./id-generator');
 
-// Book constructor
-function Book(name, author, totalQuantity) {
-  this.name = name;
-  this.author = author;
-  this.totalQuantity = totalQuantity;
-  // use generateId function to generate bookId
-  this.bookId = generateId(database.books, 'bookId');
-  this.borrowersId = [];
-  this.quantityAvailable = this.totalQuantity;
-  database.books.push(this);
+// Book class
+class Book {
+  constructor(name, author, totalQuantity) {
+    this.name = name;
+    this.author = author;
+    this.totalQuantity = totalQuantity;
+    // use generateId function to generate bookId
+    this.bookId = generateId(database.books, 'bookId');
+    this.borrowersId = [];
+    this.quantityAvailable = this.totalQuantity;
+    database.books.push(this);
+  }
 }
 
 // create a book method

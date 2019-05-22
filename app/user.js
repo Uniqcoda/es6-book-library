@@ -2,13 +2,16 @@ const database = require('./database');
 const Book = require('./book');
 const generateId = require('./id-generator');
 
-// user constructor function
-function User(name, email) {
-  this.name = name;
-  this.email = email;
-  // use generateId function to generate userId
-  this.userId = generateId(database.users, 'userId');
+// user class
+class User {
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+    // use generateId function to generate userId
+    this.userId = generateId(database.users, 'userId');
+  }
 }
+
 // save user to database
 User.prototype.save = function () {
   database.users.push(this);
