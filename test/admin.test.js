@@ -1,4 +1,3 @@
-/* eslint-disable */
 const database = require('../app/database');
 const Admin = require('../app/admin');
 const NonAdmin = require('../app/non-admin');

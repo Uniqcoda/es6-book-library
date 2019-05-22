@@ -1,8 +1,8 @@
 const database = {
-  users: [],
-  books: [],
-  borrowRequests: [],
-  returnRequests: [],
+	users: [],
+	books: [],
+	borrowRequests: [],
+	returnRequests: [],
 };
 
 module.exports = database;
