@@ -1,6 +1,6 @@
-var User = require('./user');
-var BorrowRequest = require('./borrow-request');
-var ReturnRequest = require('./return-request');
+let User = require('./user');
+let BorrowRequest = require('./borrow-request');
+let ReturnRequest = require('./return-request');
 
 // NonAdmin constructor for teachers and students
 function NonAdmin(name, email, userType) {

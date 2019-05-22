@@ -1,18 +1,18 @@
-var database = require('../app/database');
-var Admin = require('../app/admin');
-var NonAdmin = require('../app/non-admin');
+let database = require('../app/database');
+let Admin = require('../app/admin');
+let NonAdmin = require('../app/non-admin');
 
 
 describe('test cases for Admin methods', function () {
-  var moses = new Admin('Moses Adebayo', 'mosesm@gmail.com', 'Librarian');
+  let moses = new Admin('Moses Adebayo', 'mosesm@gmail.com', 'Librarian');
   moses.save();
-  var grace = new Admin('Grace Igbokwe', 'graceg@gmail.com', 'Assistant Librarian');
+  let grace = new Admin('Grace Igbokwe', 'graceg@gmail.com', 'Assistant Librarian');
   grace.save();
-  var busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
+  let busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
   busayo.save();
-  var kingsley = new NonAdmin('Kingsley Olatunji', 'kingsleyk@gmail.com', 'Senior Student');
+  let kingsley = new NonAdmin('Kingsley Olatunji', 'kingsleyk@gmail.com', 'Senior Student');
   kingsley.save();
-  var austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student');
+  let austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student');
   austin.save();
 
   describe('test for creating an admin', function () {
@@ -23,7 +23,7 @@ describe('test cases for Admin methods', function () {
   });
   describe('test for admin reading a user', function () {
     test('returns a user by id', function () {
-      var result = moses.readUser(4);
+      let result = moses.readUser(4);
       expect(result.name).toBe('Kingsley Olatunji');
       expect(grace.readUser(504)).toBe('Invalid id');
     })
@@ -55,7 +55,7 @@ describe('test cases for Admin methods', function () {
   });
   describe('test for admin reading a book by id', function () {
     test('returns a book by given id', function () {
-      var result = grace.readABook(1);
+      let result = grace.readABook(1);
       expect(result).toHaveProperty('author', 'David Mogbeyi');
       expect(grace.readABook(59)).toBe('Invalid id');
     })

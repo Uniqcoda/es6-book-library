@@ -1,7 +1,7 @@
-var Request = require('./request');
-var database = require('./database');
-var Book = require('./book');
-var User = require('./user');
+let Request = require('./request');
+let database = require('./database');
+let Book = require('./book');
+let User = require('./user');
 
 function BorrowRequest(bookName, bookId, userId, userType) {
   Request.call(this, bookName, bookId, userId);
@@ -28,18 +28,18 @@ BorrowRequest.prototype.read = function () {
 // attend to all borrow requests in database
 BorrowRequest.prototype.approve = function () {
   // sort array by user type
-  var priority = { 'Teacher': 1, 'Senior Student': 2, 'Junior Student': 3 }
+  let priority = { 'Teacher': 1, 'Senior Student': 2, 'Junior Student': 3 }
   database.borrowRequests.sort(function (user1, user2) {
     return priority[user1.userType] - priority[user2.userType];
   });
   // loop through the sorted array of books
-  for (var index = 0; index < database.borrowRequests.length; index++) {
+  for (let index = 0; index < database.borrowRequests.length; index++) {
     // extract the bookId and userId from each pendingRequest
-    var bookId = database.borrowRequests[index].bookId;
-    var userId = database.borrowRequests[index].userId;
+    let bookId = database.borrowRequests[index].bookId;
+    let userId = database.borrowRequests[index].userId;
     // read user and book
-    var user = User.prototype.readUser(userId);
-    var book = Book.prototype.read(bookId);
+    let user = User.prototype.readUser(userId);
+    let book = Book.prototype.read(bookId);
     // confirm that user is not requesting to borrow a book more than once
     if (user.booksBorrowed.indexOf(book.name) > -1) {
       database.borrowRequests[index].isApproved = 'You have already borrowed this book!';

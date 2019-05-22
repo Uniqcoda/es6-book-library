@@ -1,7 +1,7 @@
-var Request = require('./request');
-var database = require('./database');
-var Book = require('./book');
-var User = require('./user');
+let Request = require('./request');
+let database = require('./database');
+let Book = require('./book');
+let User = require('./user');
 
 // Return request constructor
 function ReturnRequest(bookName, bookId, userId) {
@@ -29,13 +29,13 @@ ReturnRequest.prototype.read = function () {
 // approve return requests in database
 ReturnRequest.prototype.approve = function () {
   // loop through the array of returnRequests
-  for (var index = 0; index < database.returnRequests.length; index++) {
+  for (let index = 0; index < database.returnRequests.length; index++) {
     // extract the bookId and userId from each return request
-    var bookId = database.returnRequests[index].bookId;
-    var bookName = database.returnRequests[index].bookName;
-    var userId = database.returnRequests[index].userId;
-    var user = User.prototype.readUser(userId);
-    var book = Book.prototype.read(bookId);
+    let bookId = database.returnRequests[index].bookId;
+    let bookName = database.returnRequests[index].bookName;
+    let userId = database.returnRequests[index].userId;
+    let user = User.prototype.readUser(userId);
+    let book = Book.prototype.read(bookId);
     // check if book exists
     if (book === 'Invalid id') {
       return database.returnRequests[index].isApproved = 'Invalid book id';

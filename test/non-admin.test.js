@@ -1,15 +1,15 @@
-var database = require('../app/database');
-var Admin = require('../app/admin');
-var NonAdmin = require('../app/non-admin');
+let database = require('../app/database');
+let Admin = require('../app/admin');
+let NonAdmin = require('../app/non-admin');
 
 describe('test for non-admin methods', function () {
-  var busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
+  let busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
   busayo.save();
-  var kingsley = new NonAdmin('Kingsley Olatunji', 'kingsleyk@gmail.com', 'Senior Student');
+  let kingsley = new NonAdmin('Kingsley Olatunji', 'kingsleyk@gmail.com', 'Senior Student');
   kingsley.save();
-  var austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student');
+  let austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student');
   austin.save();
-  var grace = new Admin('Grace Igbokwe', 'graceg@gmail.com');
+  let grace = new Admin('Grace Igbokwe', 'graceg@gmail.com');
   grace.save();
   grace.createBook('Physics1', 'David Mogbeyi', 2);
   grace.createBook('Agriculture1', 'Mike Ogbonna', 10);
@@ -22,7 +22,7 @@ describe('test for non-admin methods', function () {
   });
   // TEST FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
   describe('test case for non-admin requesting to borrow a book', function () {
-    var result = busayo.requestToBorrowBook('Physics1', 1);
+    let result = busayo.requestToBorrowBook('Physics1', 1);
     test('adds a request to the borrowRequests array', function () {
       // confirm that the request was added to the borrowRequests array
       expect(database.borrowRequests.length).toBe(1);
@@ -32,7 +32,7 @@ describe('test for non-admin methods', function () {
     })
   })
   describe('test case for non-admin requesting to return a book', function () {
-    var result = busayo.requestToReturnBook('Physics1', 1);
+    let result = busayo.requestToReturnBook('Physics1', 1);
     test('adds a request to the returnRequests array', function () {
       // confirm that the request was added to the returnRequests array
       expect(database.returnRequests.length).toBe(1);

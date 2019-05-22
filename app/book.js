@@ -1,5 +1,5 @@
-var database = require('./database');
-var generateId = require('./id-generator');
+let database = require('./database');
+let generateId = require('./id-generator');
 
 // Book constructor
 function Book(name, author, totalQuantity) {
@@ -21,14 +21,14 @@ Book.prototype.create = function (name, author, totalQuantity) {
 // search a book method
 Book.prototype.search = function (name) {
   // a regular expression to match any book with such a name
-  var regex = new RegExp(name, 'g');
+  let regex = new RegExp(name, 'g');
   // an array to store all matched books
-  var booksWithName = [];
-  for (var index = 0; index < database.books.length; index++) {
+  let booksWithName = [];
+  for (let index = 0; index < database.books.length; index++) {
     if (regex.test(database.books[index].name)) {
-      var bookName = database.books[index].name;
-      var bookAuthor = database.books[index].author;
-      var bookId = database.books[index].bookId;
+      let bookName = database.books[index].name;
+      let bookAuthor = database.books[index].author;
+      let bookId = database.books[index].bookId;
       // the search result should contain only necessary information available to the public
       booksWithName.push({ name: bookName, author: bookAuthor, bookId: bookId });
     }
@@ -39,7 +39,7 @@ Book.prototype.search = function (name) {
 
 // read a book method
 Book.prototype.read = function (bookId) {
-  for (var index = 0; index < database.books.length; index++) {
+  for (let index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
       return database.books[index];
     }
@@ -68,7 +68,7 @@ Book.prototype.update = function (bookId, updateObject) {
 
 // delete a book method
 Book.prototype.delete = function (bookId) {
-  for (var index = 0; index < database.books.length; index++) {
+  for (let index = 0; index < database.books.length; index++) {
     if (database.books[index].bookId === bookId) {
       // remove book from books array
       database.books.splice(index, 1);

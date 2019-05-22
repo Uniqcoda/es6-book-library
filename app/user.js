@@ -1,6 +1,6 @@
-var database = require('./database');
-var Book = require('./book');
-var generateId = require('./id-generator');
+let database = require('./database');
+let Book = require('./book');
+let generateId = require('./id-generator');
 
 // user constructor function
 function User(name, email) {
@@ -17,10 +17,10 @@ User.prototype.save = function () {
 // search a user method
 User.prototype.searchUser = function (name) {
     // a regular expression to match any user with such a name
-  var regex = new RegExp(name, 'g');
+  let regex = new RegExp(name, 'g');
     // an array to store all matched users
-  var usersWithName = [];
-  for (var index = 0; index < database.users.length; index++) {
+  let usersWithName = [];
+  for (let index = 0; index < database.users.length; index++) {
     if (regex.test(database.users[index].name)) {
       usersWithName.push({ name: database.users[index].name });
     }
@@ -41,7 +41,7 @@ User.prototype.updateUser = function (updateObject) {
 
 // read a user by id method
 User.prototype.readUser = function (userId) {
-  for (var index = 0; index < database.users.length; index++) {
+  for (let index = 0; index < database.users.length; index++) {
     // loop through the users array and find the user with the id
     if (database.users[index].userId === userId) {
       return database.users[index];
@@ -52,7 +52,7 @@ User.prototype.readUser = function (userId) {
 
 // user deletes account
 User.prototype.delete = function () {
-  for (var i = 0; i < database.users.length; i++) {
+  for (let i = 0; i < database.users.length; i++) {
     if (database.users[i].userId === this.userId) {
       database.users.splice(i, 1);
       return 'Account successfully deleted';

@@ -1,4 +1,4 @@
-var database = {
+const database = {
   users: [],
   books: [],
   borrowRequests: [],
