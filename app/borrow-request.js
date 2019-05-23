@@ -1,12 +1,12 @@
 /* eslint-disable no-continue */
 /* eslint-disable class-methods-use-this */
-const Request = require('./request');
-const database = require('./database');
-const Book = require('./book');
-const User = require('./user');
+import Request from './request';
+import database from './database';
+import Book from './book';
+import User from './user';
 
 // borrow request class
-class BorrowRequest extends Request {
+export default class BorrowRequest extends Request {
 	constructor(bookName, bookId, userId, userType) {
 		super(bookName, bookId, userId);
 		this.userType = userType;
@@ -66,5 +66,3 @@ class BorrowRequest extends Request {
 		return 'All borrow requests have been attended to.';
 	}
 }
-
-module.exports = BorrowRequest;

@@ -1,9 +1,9 @@
 /* eslint-disable class-methods-use-this */
-const database = require('./database');
-const generateId = require('./id-generator');
+import database from './database';
+import generateId from './id-generator';
 
 // Book class
-class Book {
+export default class Book {
 	constructor(name, author, totalQuantity) {
 		this.name = name;
 		this.author = author;
@@ -83,5 +83,3 @@ class Book {
 		return database.books;
 	}
 }
-
-module.exports = Book;

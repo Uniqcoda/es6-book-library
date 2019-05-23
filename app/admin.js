@@ -1,11 +1,11 @@
 /* eslint-disable class-methods-use-this */
-const User = require('./user');
-const Book = require('./book');
-const BorrowRequest = require('./borrow-request');
-const ReturnRequest = require('./return-request');
+import User from './user';
+import Book from './book';
+import BorrowRequest from './borrow-request';
+import ReturnRequest from './return-request';
 
 // Admin constructor
-class Admin extends User {
+export default class Admin extends User {
 	constructor(name, email, position) {
 		super(name, email);
 		this.position = position;
@@ -62,5 +62,3 @@ class Admin extends User {
 		return ReturnRequest.approve();
 	}
 }
-
-module.exports = Admin;

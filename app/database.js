@@ -5,4 +5,4 @@ const database = {
 	returnRequests: [],
 };
 
-module.exports = database;
+export default  database;

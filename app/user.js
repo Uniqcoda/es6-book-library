@@ -1,10 +1,10 @@
 /* eslint-disable class-methods-use-this */
-const database = require('./database');
-const Book = require('./book');
-const generateId = require('./id-generator');
+import database from './database';
+import Book from './book';
+import generateId from './id-generator';
 
 // user class
-class User {
+export default class User {
 	constructor(name, email) {
 		this.name = name;
 		this.email = email;
@@ -70,5 +70,3 @@ class User {
 		return Book.search(word);
 	}
 }
-
-module.exports = User;

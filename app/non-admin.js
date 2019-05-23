@@ -1,9 +1,9 @@
-const User = require('./user');
-const BorrowRequest = require('./borrow-request');
-const ReturnRequest = require('./return-request');
+import User from './user';
+import BorrowRequest from './borrow-request';
+import ReturnRequest from './return-request';
 
 // NonAdmin class
-class NonAdmin extends User {
+export default class NonAdmin extends User {
 	constructor(name, email, userType) {
 		super(name, email);
 		this.userType = userType;
@@ -26,5 +26,3 @@ class NonAdmin extends User {
 		return 'Request submitted!';
 	}
 }
-
-module.exports = NonAdmin;
