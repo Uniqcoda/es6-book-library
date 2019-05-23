@@ -23,7 +23,7 @@ class User {
 		const regex = new RegExp(name, 'g');
 		// an array to store all matched users
 		const usersWithName = [];
-		for (let index = 0; index < database.users.length; index += 1) {
+		for (let index = 0; index < database.users.length; index++) {
 			if (regex.test(database.users[index].name)) {
 				usersWithName.push({ name: database.users[index].name });
 			}
@@ -45,7 +45,7 @@ class User {
 
 	// read a user by id method
 	readUser(userId) {
-		for (let index = 0; index < database.users.length; index += 1) {
+		for (let index = 0; index < database.users.length; index++) {
 			// loop through the users array and find the user with the id
 			if (database.users[index].userId === userId) {
 				return database.users[index];

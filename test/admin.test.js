@@ -2,26 +2,26 @@ const database = require('../app/database');
 const Admin = require('../app/admin');
 const NonAdmin = require('../app/non-admin');
 
-describe('test cases for Admin methods', function () {
-  let moses = new Admin('Moses Adebayo', 'mosesm@gmail.com', 'Librarian');
+describe('test cases for Admin methods', () => {
+  const moses = new Admin('Moses Adebayo', 'mosesm@gmail.com', 'Librarian');
   moses.save();
-  let grace = new Admin('Grace Igbokwe', 'graceg@gmail.com', 'Assistant Librarian');
+  const grace = new Admin('Grace Igbokwe', 'graceg@gmail.com', 'Assistant Librarian');
   grace.save();
-  let busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
+  const busayo = new NonAdmin('Busayo Onyeka', 'busayob@gmail.com', 'Teacher');
   busayo.save();
-  let kingsley = new NonAdmin('Kingsley Olatunji', 'kingsleyk@gmail.com', 'Senior Student');
+  const kingsley = new NonAdmin('Kingsley Olatunji', 'kingsleyk@gmail.com', 'Senior Student');
   kingsley.save();
-  let austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student');
+  const austin = new NonAdmin('Austin Sharibu', 'austina@gmail.com', 'Junior Student');
   austin.save();
 
-  describe('test for creating an admin', function () {
-    test('checks for instance of Admin', function () {
+  describe('test for creating an admin',  () => {
+    test('checks for instance of Admin',  () => {
       expect(moses instanceof Admin).toBeTruthy();
       expect(database.users[0]).toHaveProperty('name', 'Moses Adebayo');
     });
   });
-  describe('test for admin reading a user', function () {
-    test('returns a user by id', function () {
+  describe('test for admin reading a user',  () => {
+    test('returns a user by id',  () => {
       let result = moses.readUser(4);
       expect(result.name).toBe('Kingsley Olatunji');
       expect(grace.readUser(504)).toBe('Invalid id');
@@ -36,14 +36,14 @@ describe('test cases for Admin methods', function () {
   grace.createBook('Biology1', 'Mfoniso Abetang', 4);
   moses.createBook('Ecconomis', 'Rukevwe Nathan', 4)
 
-  describe('test for admin creating a book', function () {
-    test('confirms that new book was created', function () {
+  describe('test for admin creating a book',  () => {
+    test('confirms that new book was created',  () => {
       expect(database.books[0]).toHaveProperty('name', 'Physics1');
       expect(database.books[1]).toHaveProperty('name', 'Science2');
     });
   })
-  describe('test for admin updating a book by id', function () {
-    test('confirms that book was updated', function () {
+  describe('test for admin updating a book by id',  () => {
+    test('confirms that book was updated',  () => {
       moses.updateBook(1, { totalQuantity: 8 });
       grace.updateBook(2, { name: 'Primary Science2' });
       expect(database.books[0]).toHaveProperty('totalQuantity', 8);
@@ -52,22 +52,22 @@ describe('test cases for Admin methods', function () {
       expect(grace.updateBook(1, 'name')).toBe('Invalid update parameter');
     })
   });
-  describe('test for admin reading a book by id', function () {
-    test('returns a book by given id', function () {
+  describe('test for admin reading a book by id',  () => {
+    test('returns a book by given id',  () => {
       let result = grace.readABook(1);
       expect(result).toHaveProperty('author', 'David Mogbeyi');
       expect(grace.readABook(59)).toBe('Invalid id');
     })
   })
-  describe('test for admin reading all books in the database', function () {
-    test('returns all books in the database', function () {
-      expect(moses.readAllBooks().length).toBe(7);
+  describe('test for admin reading all books in the database',  () => {
+    test('returns all books in the database',  () => {
+      expect(moses.readAllBooks()).toHaveLength(7);
     })
   })
-  describe('test for admin deleting a book by id', function () {
-    test('deletes book fron database', function () {
+  describe('test for admin deleting a book by id',  () => {
+    test('deletes book fron database',  () => {
       grace.deleteBook(6);
-      expect(database.books.length).toEqual(6);
+      expect(database.books).toHaveLength(6);
       expect(grace.deleteBook(200)).toBe('Invalid id');
     })
   })
@@ -85,15 +85,15 @@ describe('test cases for Admin methods', function () {
   austin.requestToBorrowBook('Science2', 2);
   austin.requestToBorrowBook('Agriculture1', 5);
 
-  describe('test for admin reading all borrow requests', function () {
-    test('returns an array of all borrow requests', function () {
+  describe('test for admin reading all borrow requests',  () => {
+    test('returns an array of all borrow requests',  () => {
       expect(moses.readBorrowRequests().length).toBe(11);
     })
   })
 
-  describe('test for admin approving borrow requests', function () {
+  describe('test for admin approving borrow requests',  () => {
     moses.approveBorrowRequests();
-    test('confirms approval status of borrowRequests', function () {
+    test('confirms approval status of borrowRequests',  () => {
       expect(database.borrowRequests[0].isApproved).toBe(true);
       expect(database.borrowRequests[1].isApproved).toBe('You have already borrowed this book!');
     })
@@ -101,28 +101,28 @@ describe('test cases for Admin methods', function () {
 
   // assuming a book was updated by changing the quantity available
   moses.updateBook(3, { totalQuantity: 6 });
-  describe('test case for updating the quantity of a book', function () {
-    test('confirms that the quantity available is changed in respect to the new total quantity', function () {
+  describe('test case for updating the quantity of a book',  () => {
+    test('confirms that the quantity available is changed in respect to the new total quantity',  () => {
       expect(database.books[2].quantityAvailable).toBe(5);
     })
   })
 
   austin.requestToReturnBook('Biology1', 6);
   austin.requestToReturnBook('Social Studies2', 19);
-  describe('test for admin reading all return requests', function () {
-    test('returns an array of all return requests', function () {
+  describe('test for admin reading all return requests',  () => {
+    test('returns an array of all return requests',  () => {
       expect(moses.readReturnRequests().length).toBe(2);
     })
   })
   grace.approveReturnRequests();
-  describe('test for admin approving return requests', function () {
-    test('confirms approval status of returnRequests', function () {
+  describe('test for admin approving return requests',  () => {
+    test('confirms approval status of returnRequests',  () => {
       expect(database.returnRequests[0].isApproved).toBe(true);
     })
-    test('test that returned book was removed from booksBorrowed array of user', function () {
+    test('test that returned book was removed from booksBorrowed array of user',  () => {
       expect(database.users[4].booksBorrowed).toEqual(expect.not.arrayContaining(['Biology1']));
     })
-    test('confirms that userId was removed from borrowers array of book', function () {
+    test('confirms that userId was removed from borrowers array of book',  () => {
       expect(database.books[5].borrowersId).toEqual(expect.not.arrayContaining([3]));
     })
   })
