@@ -21,9 +21,9 @@ class Book {
 	}
 
 	// search a book method
-	search(name) {
+	search(word) {
 		// a regular expression to match any book with such a name
-		const regex = new RegExp(name, 'g');
+		const regex = new RegExp(word, 'g');
 		// an array to store all matched books
 		const booksWithName = [];
 		for (let index = 0; index < database.books.length; index++) {
