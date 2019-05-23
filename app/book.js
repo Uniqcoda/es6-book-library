@@ -16,12 +16,12 @@ class Book {
 	}
 
 	// create a book method
-	create(name, author, totalQuantity) {
+	static create(name, author, totalQuantity) {
 		return new Book(name, author, totalQuantity);
 	}
 
 	// search a book method
-	search(word) {
+	static search(word) {
 		// a regular expression to match any book with such a name
 		const regex = new RegExp(word, 'g');
 		// an array to store all matched books
@@ -48,7 +48,7 @@ class Book {
 	}
 
 	// update a book method
-	update(bookId, updateObject) {
+	static update(bookId, updateObject) {
 		// if updateObject has name, author or totalQuantity property
 		if (updateObject.name || updateObject.author || updateObject.totalQuantity) {
 			const book = Book.read(bookId);
@@ -67,7 +67,7 @@ class Book {
 	}
 
 	// delete a book method
-	delete(bookId) {
+	static delete(bookId) {
 		for (let index = 0; index < database.books.length; index++) {
 			if (database.books[index].bookId === bookId) {
 				// remove book from books array
@@ -79,7 +79,7 @@ class Book {
 	}
 
 	// read all books method
-	readAll() {
+	static readAll() {
 		return database.books;
 	}
 }

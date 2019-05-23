@@ -13,23 +13,23 @@ class ReturnRequest extends Request {
 	}
 
 	// make a request to return book
-	create(bookName, bookId, userId) {
+	static create(bookName, bookId, userId) {
 		return new ReturnRequest(bookName, bookId, userId);
 	}
 
 	// read all return requests
-	read() {
+	static read() {
 		return database.returnRequests;
 	}
 
 	// METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
 	// approve return requests in database
-	approve() {
+	static approve() {
 		// loop through the array of returnRequests
 		for (let index = 0; index < database.returnRequests.length; index++) {
 			// extract the bookId and userId from each return request
 			const { bookId, bookName, userId } = database.returnRequests[index];
-			const user = User.prototype.readUser(userId);
+			const user = User.readUser(userId);
 			const book = Book.read(bookId);
 			// check if book exists
 			if (book === 'Invalid id') {

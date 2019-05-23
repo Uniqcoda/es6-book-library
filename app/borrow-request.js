@@ -15,18 +15,18 @@ class BorrowRequest extends Request {
 	}
 
 	// make a request to borrow book
-	create(bookName, bookId, userId, userType) {
+	static create(bookName, bookId, userId, userType) {
 		return new BorrowRequest(bookName, bookId, userId, userType);
 	}
 
 	// read all requests in database
-	read() {
+	static read() {
 		return database.borrowRequests;
 	}
 
 	// METHODS FOR THE PROCESSES OF BORROWING AND RETURNING A BOOK
 	// attend to all borrow requests in database
-	approve() {
+	static approve() {
 		// sort array by user type
 		const priority = { Teacher: 1, 'Senior Student': 2, 'Junior Student': 3 };
 		database.borrowRequests.sort((user1, user2) => {
@@ -37,7 +37,7 @@ class BorrowRequest extends Request {
 			// extract the bookId and userId from each pendingRequest
 			const { bookId, userId } = database.borrowRequests[index];
 			// read user and book
-			const user = User.prototype.readUser(userId);
+			const user = User.readUser(userId);
 			const book = Book.read(bookId);
 			// confirm that user is not requesting to borrow a book more than once
 			if (user.booksBorrowed.includes(book.name)) {

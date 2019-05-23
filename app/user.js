@@ -44,7 +44,7 @@ class User {
 	}
 
 	// read a user by id method
-	readUser(userId) {
+	static readUser(userId) {
 		for (let index = 0; index < database.users.length; index++) {
 			// loop through the users array and find the user with the id
 			if (database.users[index].userId === userId) {
@@ -66,8 +66,8 @@ class User {
 	}
 
 	// User searches for book by name
-	searchBook(name) {
-		return Book.prototype.search(name);
+	searchBook(word) {
+		return Book.search(word);
 	}
 }
 

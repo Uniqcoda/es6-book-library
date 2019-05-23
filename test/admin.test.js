@@ -22,7 +22,7 @@ describe('test cases for Admin methods', () => {
   });
   describe('test for admin reading a user',  () => {
     test('returns a user by id',  () => {
-      let result = moses.readUser(4);
+      const result = moses.readUser(4);
       expect(result.name).toBe('Kingsley Olatunji');
       expect(grace.readUser(504)).toBe('Invalid id');
     })
@@ -54,7 +54,7 @@ describe('test cases for Admin methods', () => {
   });
   describe('test for admin reading a book by id',  () => {
     test('returns a book by given id',  () => {
-      let result = grace.readABook(1);
+      const result = grace.readABook(1);
       expect(result).toHaveProperty('author', 'David Mogbeyi');
       expect(grace.readABook(59)).toBe('Invalid id');
     })
@@ -87,7 +87,7 @@ describe('test cases for Admin methods', () => {
 
   describe('test for admin reading all borrow requests',  () => {
     test('returns an array of all borrow requests',  () => {
-      expect(moses.readBorrowRequests().length).toBe(11);
+      expect(moses.readBorrowRequests()).toHaveLength(11);
     })
   })
 
@@ -111,7 +111,7 @@ describe('test cases for Admin methods', () => {
   austin.requestToReturnBook('Social Studies2', 19);
   describe('test for admin reading all return requests',  () => {
     test('returns an array of all return requests',  () => {
-      expect(moses.readReturnRequests().length).toBe(2);
+      expect(moses.readReturnRequests()).toHaveLength(2);
     })
   })
   grace.approveReturnRequests();
