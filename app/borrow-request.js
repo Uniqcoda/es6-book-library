@@ -1,3 +1,4 @@
+/* eslint-disable no-continue */
 /* eslint-disable class-methods-use-this */
 const Request = require('./request');
 const database = require('./database');
@@ -39,7 +40,7 @@ class BorrowRequest extends Request {
 			const user = User.prototype.readUser(userId);
 			const book = Book.read(bookId);
 			// confirm that user is not requesting to borrow a book more than once
-			if (user.booksBorrowed.indexOf(book.name) > -1) {
+			if (user.booksBorrowed.includes(book.name)) {
 				database.borrowRequests[index].isApproved = 'You have already borrowed this book!';
 				continue;
 			}
