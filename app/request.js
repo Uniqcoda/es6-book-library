@@ -1,5 +1,5 @@
 // Request class
-export default class Request {
+class Request {
 	constructor(bookName, bookId, userId) {
 		this.userId = userId;
 		this.bookName = bookName;
@@ -8,3 +8,5 @@ export default class Request {
 		// since a request can be  in any of two arrays, based on it's purpose
 	}
 }
+
+export default Request;

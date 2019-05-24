@@ -6,7 +6,7 @@ import Book from './book';
 import User from './user';
 
 // borrow request class
-export default class BorrowRequest extends Request {
+class BorrowRequest extends Request {
 	constructor(bookName, bookId, userId, userType) {
 		super(bookName, bookId, userId);
 		this.userType = userType;
@@ -66,3 +66,5 @@ export default class BorrowRequest extends Request {
 		return 'All borrow requests have been attended to.';
 	}
 }
+
+export default BorrowRequest;

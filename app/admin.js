@@ -5,7 +5,7 @@ import BorrowRequest from './borrow-request';
 import ReturnRequest from './return-request';
 
 // Admin constructor
-export default class Admin extends User {
+class Admin extends User {
 	constructor(name, email, position) {
 		super(name, email);
 		this.position = position;
@@ -62,3 +62,5 @@ export default class Admin extends User {
 		return ReturnRequest.approve();
 	}
 }
+
+export default Admin;

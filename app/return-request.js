@@ -5,7 +5,7 @@ import Book from './book';
 import User from './user';
 
 // Return request class
-export default class ReturnRequest extends Request {
+class ReturnRequest extends Request {
 	constructor(bookName, bookId, userId) {
 		super(bookName, bookId, userId);
 		// push this object to returnRequests array
@@ -48,3 +48,5 @@ export default class ReturnRequest extends Request {
 		return 'All return requests have been attended to.';
 	}
 }
+
+export default ReturnRequest;

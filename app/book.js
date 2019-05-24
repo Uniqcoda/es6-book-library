@@ -3,7 +3,7 @@ import database from './database';
 import generateId from './id-generator';
 
 // Book class
-export default class Book {
+class Book {
 	constructor(name, author, totalQuantity) {
 		this.name = name;
 		this.author = author;
@@ -83,3 +83,4 @@ export default class Book {
 		return database.books;
 	}
 }
+export default Book;

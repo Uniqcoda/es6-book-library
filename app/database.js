@@ -5,4 +5,4 @@ const database = {
 	returnRequests: [],
 };
 
-export default  database;
+export default database;

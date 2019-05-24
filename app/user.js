@@ -4,7 +4,7 @@ import Book from './book';
 import generateId from './id-generator';
 
 // user class
-export default class User {
+class User {
 	constructor(name, email) {
 		this.name = name;
 		this.email = email;
@@ -70,3 +70,5 @@ export default class User {
 		return Book.search(word);
 	}
 }
+
+export default User;

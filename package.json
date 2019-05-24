@@ -1,32 +1,35 @@
 {
-  "name": "book-library",
-  "version": "1.0.0",
-  "description": "A library where books can be borrowed.",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest --coverage"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Uniqcoda/book-library.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Uniqcoda/book-library/issues"
-  },
-  "homepage": "https://github.com/Uniqcoda/book-library#readme",
-  "devDependencies": {
-    "eslint": "^5.3.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jest": "^22.6.2",
-    "eslint-plugin-prettier": "^3.1.0",
-    "jest": "^24.8.0",
-    "prettier": "^1.17.1"
-  },
-  "dependencies": {
-    "typescript": "^3.4.5"
-  }
+	"name": "book-library",
+	"version": "1.0.0",
+	"description": "A library where books can be borrowed.",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest --coverage"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Uniqcoda/book-library.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Uniqcoda/book-library/issues"
+	},
+	"homepage": "https://github.com/Uniqcoda/book-library#readme",
+	"devDependencies": {
+		"@babel/core": "^7.4.5",
+		"@babel/preset-env": "^7.4.5",
+		"babel-jest": "^24.8.0",
+		"eslint": "^5.3.0",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-config-prettier": "^4.3.0",
+		"eslint-plugin-import": "^2.17.2",
+		"eslint-plugin-jest": "^22.6.2",
+		"eslint-plugin-prettier": "^3.1.0",
+		"jest": "^24.8.0",
+		"prettier": "^1.17.1"
+	},
+	"dependencies": {
+		"typescript": "^3.4.5"
+	}
 }
