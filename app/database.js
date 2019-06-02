@@ -1,8 +1,8 @@
-var database = {
-  users: [],
-  books: [],
-  borrowRequests: [],
-  returnRequests: []
-}
+const database = {
+	users: [],
+	books: [],
+	borrowRequests: [],
+	returnRequests: [],
+};
 
-module.exports = database;
+export default database;
